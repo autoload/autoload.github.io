@@ -149,6 +149,1204 @@
 
 
   
+    <article id="post-kubernetes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/12/kubernetes/" class="article-date">
+  <time class="dt-published" datetime="2021-02-12T23:54:03.000Z" itemprop="datePublished">2021-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Kubernetes/">Kubernetes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/12/kubernetes/">Kubernetes (K8s)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://pkg.go.dev/k8s.io/kubernetes"><img src="https://pkg.go.dev/badge/k8s.io/kubernetes.svg" alt="GoPkg Widget"></a> <a target="_blank" rel="noopener" href="https://bestpractices.coreinfrastructure.org/projects/569"><img src="https://bestpractices.coreinfrastructure.org/projects/569/badge" alt="CII Best Practices"></a></p>
+<img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="100">
+
+<hr>
+<p>Kubernetes, also known as K8s, is an open source system for managing <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">containerized applications</a><br>across multiple hosts. It provides basic mechanisms for deployment, maintenance,<br>and scaling of applications.</p>
+<p>Kubernetes builds upon a decade and a half of experience at Google running<br>production workloads at scale using a system called <a target="_blank" rel="noopener" href="https://research.google.com/pubs/pub43438.html">Borg</a>,<br>combined with best-of-breed ideas and practices from the community.</p>
+<p>Kubernetes is hosted by the Cloud Native Computing Foundation (<a target="_blank" rel="noopener" href="https://www.cncf.io/about">CNCF</a>).<br>If your company wants to help shape the evolution of<br>technologies that are container-packaged, dynamically scheduled,<br>and microservices-oriented, consider joining the CNCF.<br>For details about who’s involved and how Kubernetes plays a role,<br>read the CNCF <a target="_blank" rel="noopener" href="https://cncf.io/news/announcement/2015/07/new-cloud-native-computing-foundation-drive-alignment-among-container">announcement</a>.</p>
+<hr>
+<h2 id="To-start-using-K8s"><a href="#To-start-using-K8s" class="headerlink" title="To start using K8s"></a>To start using K8s</h2><p>See our documentation on <a target="_blank" rel="noopener" href="https://kubernetes.io/">kubernetes.io</a>.</p>
+<p>Try our <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tutorials/kubernetes-basics">interactive tutorial</a>.</p>
+<p>Take a free course on <a target="_blank" rel="noopener" href="https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615">Scalable Microservices with Kubernetes</a>.</p>
+<p>To use Kubernetes code as a library in other applications, see the <a target="_blank" rel="noopener" href="https://git.k8s.io/kubernetes/staging/README.md">list of published components</a>.<br>Use of the <code>k8s.io/kubernetes</code> module or <code>k8s.io/kubernetes/...</code> packages as libraries is not supported.</p>
+<h2 id="To-start-developing-K8s"><a href="#To-start-developing-K8s" class="headerlink" title="To start developing K8s"></a>To start developing K8s</h2><p>The <a target="_blank" rel="noopener" href="https://git.k8s.io/community">community repository</a> hosts all information about<br>building Kubernetes from source, how to contribute code<br>and documentation, who to contact about what, etc.</p>
+<p>If you want to build Kubernetes right away there are two options:</p>
+<h5 id="You-have-a-working-Go-environment"><a href="#You-have-a-working-Go-environment" class="headerlink" title="You have a working Go environment."></a>You have a working <a target="_blank" rel="noopener" href="https://golang.org/doc/install">Go environment</a>.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $GOPATH&#x2F;src&#x2F;k8s.io</span><br><span class="line">cd $GOPATH&#x2F;src&#x2F;k8s.io</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;kubernetes&#x2F;kubernetes</span><br><span class="line">cd kubernetes</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<h5 id="You-have-a-working-Docker-environment"><a href="#You-have-a-working-Docker-environment" class="headerlink" title="You have a working Docker environment."></a>You have a working <a target="_blank" rel="noopener" href="https://docs.docker.com/engine">Docker environment</a>.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;kubernetes&#x2F;kubernetes</span><br><span class="line">cd kubernetes</span><br><span class="line">make quick-release</span><br></pre></td></tr></table></figure>
+<p>For the full story, head over to the <a target="_blank" rel="noopener" href="https://git.k8s.io/community/contributors/devel#readme">developer’s documentation</a>.</p>
+<h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p>If you need support, start with the <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/">troubleshooting guide</a>,<br>and work your way through the process that we’ve outlined.</p>
+<p>That said, if you have questions, reach out to us<br><a target="_blank" rel="noopener" href="https://git.k8s.io/community/communication">one way or another</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/12/kubernetes/" data-id="cklkfuiuz00001495fi5f2yg5" data-title="Kubernetes (K8s)" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-redis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/12/redis/" class="article-date">
+  <time class="dt-published" datetime="2021-01-12T23:00:00.000Z" itemprop="datePublished">2021-01-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redis/">Redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/01/12/redis/">Redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This README is just a fast <em>quick start</em> document. You can find more detailed documentation at <a target="_blank" rel="noopener" href="https://redis.io/">redis.io</a>.</p>
+<h2 id="What-is-Redis"><a href="#What-is-Redis" class="headerlink" title="What is Redis?"></a>What is Redis?</h2><p>Redis is often referred to as a <em>data structures</em> server. What this means is that Redis provides access to mutable data structures via a set of commands, which are sent using a <em>server-client</em> model with TCP sockets and a simple protocol. So different processes can query and modify the same data structures in a shared way.</p>
+<p>Data structures implemented into Redis have a few special properties:</p>
+<ul>
+<li>Redis cares to store them on disk, even if they are always served and modified into the server memory. This means that Redis is fast, but that it is also non-volatile.</li>
+<li>The implementation of data structures emphasizes memory efficiency, so data structures inside Redis will likely use less memory compared to the same data structure modelled using a high-level programming language.</li>
+<li>Redis offers a number of features that are natural to find in a database, like replication, tunable levels of durability, clustering, and high availability.</li>
+</ul>
+<p>Another good example is to think of Redis as a more complex version of memcached, where the operations are not just SETs and GETs, but operations that work with complex data types like Lists, Sets, ordered data structures, and so forth.</p>
+<p>If you want to know more, this is a list of selected starting points:</p>
+<ul>
+<li>Introduction to Redis data types. <a target="_blank" rel="noopener" href="http://redis.io/topics/data-types-intro">http://redis.io/topics/data-types-intro</a></li>
+<li>Try Redis directly inside your browser. <a target="_blank" rel="noopener" href="http://try.redis.io/">http://try.redis.io</a></li>
+<li>The full list of Redis commands. <a target="_blank" rel="noopener" href="http://redis.io/commands">http://redis.io/commands</a></li>
+<li>There is much more inside the official Redis documentation. <a target="_blank" rel="noopener" href="http://redis.io/documentation">http://redis.io/documentation</a></li>
+</ul>
+<h2 id="Building-Redis"><a href="#Building-Redis" class="headerlink" title="Building Redis"></a>Building Redis</h2><p>Redis can be compiled and used on Linux, OSX, OpenBSD, NetBSD, FreeBSD.<br>We support big endian and little endian architectures, and both 32 bit<br>and 64 bit systems.</p>
+<p>It may compile on Solaris derived systems (for instance SmartOS) but our<br>support for this platform is <em>best effort</em> and Redis is not guaranteed to<br>work as well as in Linux, OSX, and *BSD.</p>
+<p>It is as simple as:</p>
+<pre><code>% make
+</code></pre>
+<p>To build with TLS support, you’ll need OpenSSL development libraries (e.g.<br>libssl-dev on Debian/Ubuntu) and run:</p>
+<pre><code>% make BUILD_TLS=yes
+</code></pre>
+<p>To build with systemd support, you’ll need systemd development libraries (such<br>as libsystemd-dev on Debian/Ubuntu or systemd-devel on CentOS) and run:</p>
+<pre><code>% make USE_SYSTEMD=yes
+</code></pre>
+<p>To append a suffix to Redis program names, use:</p>
+<pre><code>% make PROG_SUFFIX=&quot;-alt&quot;
+</code></pre>
+<p>You can run a 32 bit Redis binary using:</p>
+<pre><code>% make 32bit
+</code></pre>
+<p>After building Redis, it is a good idea to test it using:</p>
+<pre><code>% make test
+</code></pre>
+<p>If TLS is built, running the tests with TLS enabled (you will need <code>tcl-tls</code><br>installed):</p>
+<pre><code>% ./utils/gen-test-certs.sh
+% ./runtest --tls
+</code></pre>
+<h2 id="Fixing-build-problems-with-dependencies-or-cached-build-options"><a href="#Fixing-build-problems-with-dependencies-or-cached-build-options" class="headerlink" title="Fixing build problems with dependencies or cached build options"></a>Fixing build problems with dependencies or cached build options</h2><p>Redis has some dependencies which are included in the <code>deps</code> directory.<br><code>make</code> does not automatically rebuild dependencies even if something in<br>the source code of dependencies changes.</p>
+<p>When you update the source code with <code>git pull</code> or when code inside the<br>dependencies tree is modified in any other way, make sure to use the following<br>command in order to really clean everything and rebuild from scratch:</p>
+<pre><code>make distclean
+</code></pre>
+<p>This will clean: jemalloc, lua, hiredis, linenoise.</p>
+<p>Also if you force certain build options like 32bit target, no C compiler<br>optimizations (for debugging purposes), and other similar build time options,<br>those options are cached indefinitely until you issue a <code>make distclean</code><br>command.</p>
+<h2 id="Fixing-problems-building-32-bit-binaries"><a href="#Fixing-problems-building-32-bit-binaries" class="headerlink" title="Fixing problems building 32 bit binaries"></a>Fixing problems building 32 bit binaries</h2><p>If after building Redis with a 32 bit target you need to rebuild it<br>with a 64 bit target, or the other way around, you need to perform a<br><code>make distclean</code> in the root directory of the Redis distribution.</p>
+<p>In case of build errors when trying to build a 32 bit binary of Redis, try<br>the following steps:</p>
+<ul>
+<li>Install the package libc6-dev-i386 (also try g++-multilib).</li>
+<li>Try using the following command line instead of <code>make 32bit</code>:<br><code>make CFLAGS=&quot;-m32 -march=native&quot; LDFLAGS=&quot;-m32&quot;</code></li>
+</ul>
+<h2 id="Allocator"><a href="#Allocator" class="headerlink" title="Allocator"></a>Allocator</h2><p>Selecting a non-default memory allocator when building Redis is done by setting<br>the <code>MALLOC</code> environment variable. Redis is compiled and linked against libc<br>malloc by default, with the exception of jemalloc being the default on Linux<br>systems. This default was picked because jemalloc has proven to have fewer<br>fragmentation problems than libc malloc.</p>
+<p>To force compiling against libc malloc, use:</p>
+<pre><code>% make MALLOC=libc
+</code></pre>
+<p>To compile against jemalloc on Mac OS X systems, use:</p>
+<pre><code>% make MALLOC=jemalloc
+</code></pre>
+<h2 id="Monotonic-clock"><a href="#Monotonic-clock" class="headerlink" title="Monotonic clock"></a>Monotonic clock</h2><p>By default, Redis will build using the POSIX clock_gettime function as the<br>monotonic clock source.  On most modern systems, the internal processor clock<br>can be used to improve performance.  Cautions can be found here:<br>    <a target="_blank" rel="noopener" href="http://oliveryang.net/2015/09/pitfalls-of-TSC-usage/">http://oliveryang.net/2015/09/pitfalls-of-TSC-usage/</a></p>
+<p>To build with support for the processor’s internal instruction clock, use:</p>
+<pre><code>% make CFLAGS=&quot;-DUSE_PROCESSOR_CLOCK&quot;
+</code></pre>
+<h2 id="Verbose-build"><a href="#Verbose-build" class="headerlink" title="Verbose build"></a>Verbose build</h2><p>Redis will build with a user-friendly colorized output by default.<br>If you want to see a more verbose output, use the following:</p>
+<pre><code>% make V=1
+</code></pre>
+<h2 id="Running-Redis"><a href="#Running-Redis" class="headerlink" title="Running Redis"></a>Running Redis</h2><p>To run Redis with the default configuration, just type:</p>
+<pre><code>% cd src
+% ./redis-server
+</code></pre>
+<p>If you want to provide your redis.conf, you have to run it using an additional<br>parameter (the path of the configuration file):</p>
+<pre><code>% cd src
+% ./redis-server /path/to/redis.conf
+</code></pre>
+<p>It is possible to alter the Redis configuration by passing parameters directly<br>as options using the command line. Examples:</p>
+<pre><code>% ./redis-server --port 9999 --replicaof 127.0.0.1 6379
+% ./redis-server /etc/redis/6379.conf --loglevel debug
+</code></pre>
+<p>All the options in redis.conf are also supported as options using the command<br>line, with exactly the same name.</p>
+<h2 id="Running-Redis-with-TLS"><a href="#Running-Redis-with-TLS" class="headerlink" title="Running Redis with TLS:"></a>Running Redis with TLS:</h2><p>Please consult the <a href="TLS.md">TLS.md</a> file for more information on<br>how to use Redis with TLS.</p>
+<h2 id="Playing-with-Redis"><a href="#Playing-with-Redis" class="headerlink" title="Playing with Redis"></a>Playing with Redis</h2><p>You can use redis-cli to play with Redis. Start a redis-server instance,<br>then in another terminal try the following:</p>
+<pre><code>% cd src
+% ./redis-cli
+redis&gt; ping
+PONG
+redis&gt; set foo bar
+OK
+redis&gt; get foo
+&quot;bar&quot;
+redis&gt; incr mycounter
+(integer) 1
+redis&gt; incr mycounter
+(integer) 2
+redis&gt;
+</code></pre>
+<p>You can find the list of all the available commands at <a target="_blank" rel="noopener" href="http://redis.io/commands">http://redis.io/commands</a>.</p>
+<h2 id="Installing-Redis"><a href="#Installing-Redis" class="headerlink" title="Installing Redis"></a>Installing Redis</h2><p>In order to install Redis binaries into /usr/local/bin, just use:</p>
+<pre><code>% make install
+</code></pre>
+<p>You can use <code>make PREFIX=/some/other/directory install</code> if you wish to use a<br>different destination.</p>
+<p>Make install will just install binaries in your system, but will not configure<br>init scripts and configuration files in the appropriate place. This is not<br>needed if you just want to play a bit with Redis, but if you are installing<br>it the proper way for a production system, we have a script that does this<br>for Ubuntu and Debian systems:</p>
+<pre><code>% cd utils
+% ./install_server.sh
+</code></pre>
+<p><em>Note</em>: <code>install_server.sh</code> will not work on Mac OSX; it is built for Linux only.</p>
+<p>The script will ask you a few questions and will setup everything you need<br>to run Redis properly as a background daemon that will start again on<br>system reboots.</p>
+<p>You’ll be able to stop and start Redis using the script named<br><code>/etc/init.d/redis_&lt;portnumber&gt;</code>, for instance <code>/etc/init.d/redis_6379</code>.</p>
+<h2 id="Code-contributions"><a href="#Code-contributions" class="headerlink" title="Code contributions"></a>Code contributions</h2><p>Note: By contributing code to the Redis project in any form, including sending<br>a pull request via Github, a code fragment or patch via private email or<br>public discussion groups, you agree to release your code under the terms<br>of the BSD license that you can find in the <a target="_blank" rel="noopener" href="https://github.com/redis/redis/blob/unstable/COPYING">COPYING</a> file included in the Redis<br>source distribution.</p>
+<p>Please see the <a target="_blank" rel="noopener" href="https://github.com/redis/redis/blob/unstable/CONTRIBUTING">CONTRIBUTING</a> file in this source distribution for more<br>information, including details on our process for security bugs/vulnerabilities.</p>
+<h1 id="Redis-internals"><a href="#Redis-internals" class="headerlink" title="Redis internals"></a>Redis internals</h1><p>If you are reading this README you are likely in front of a Github page<br>or you just untarred the Redis distribution tar ball. In both the cases<br>you are basically one step away from the source code, so here we explain<br>the Redis source code layout, what is in each file as a general idea, the<br>most important functions and structures inside the Redis server and so forth.<br>We keep all the discussion at a high level without digging into the details<br>since this document would be huge otherwise and our code base changes<br>continuously, but a general idea should be a good starting point to<br>understand more. Moreover most of the code is heavily commented and easy<br>to follow.</p>
+<h2 id="Source-code-layout"><a href="#Source-code-layout" class="headerlink" title="Source code layout"></a>Source code layout</h2><p>The Redis root directory just contains this README, the Makefile which<br>calls the real Makefile inside the <code>src</code> directory and an example<br>configuration for Redis and Sentinel. You can find a few shell<br>scripts that are used in order to execute the Redis, Redis Cluster and<br>Redis Sentinel unit tests, which are implemented inside the <code>tests</code><br>directory.</p>
+<p>Inside the root are the following important directories:</p>
+<ul>
+<li><code>src</code>: contains the Redis implementation, written in C.</li>
+<li><code>tests</code>: contains the unit tests, implemented in Tcl.</li>
+<li><code>deps</code>: contains libraries Redis uses. Everything needed to compile Redis is inside this directory; your system just needs to provide <code>libc</code>, a POSIX compatible interface and a C compiler. Notably <code>deps</code> contains a copy of <code>jemalloc</code>, which is the default allocator of Redis under Linux. Note that under <code>deps</code> there are also things which started with the Redis project, but for which the main repository is not <code>redis/redis</code>.</li>
+</ul>
+<p>There are a few more directories but they are not very important for our goals<br>here. We’ll focus mostly on <code>src</code>, where the Redis implementation is contained,<br>exploring what there is inside each file. The order in which files are<br>exposed is the logical one to follow in order to disclose different layers<br>of complexity incrementally.</p>
+<p>Note: lately Redis was refactored quite a bit. Function names and file<br>names have been changed, so you may find that this documentation reflects the<br><code>unstable</code> branch more closely. For instance, in Redis 3.0 the <code>server.c</code><br>and <code>server.h</code> files were named <code>redis.c</code> and <code>redis.h</code>. However the overall<br>structure is the same. Keep in mind that all the new developments and pull<br>requests should be performed against the <code>unstable</code> branch.</p>
+<h2 id="server-h"><a href="#server-h" class="headerlink" title="server.h"></a>server.h</h2><p>The simplest way to understand how a program works is to understand the<br>data structures it uses. So we’ll start from the main header file of<br>Redis, which is <code>server.h</code>.</p>
+<p>All the server configuration and in general all the shared state is<br>defined in a global structure called <code>server</code>, of type <code>struct redisServer</code>.<br>A few important fields in this structure are:</p>
+<ul>
+<li><code>server.db</code> is an array of Redis databases, where data is stored.</li>
+<li><code>server.commands</code> is the command table.</li>
+<li><code>server.clients</code> is a linked list of clients connected to the server.</li>
+<li><code>server.master</code> is a special client, the master, if the instance is a replica.</li>
+</ul>
+<p>There are tons of other fields. Most fields are commented directly inside<br>the structure definition.</p>
+<p>Another important Redis data structure is the one defining a client.<br>In the past it was called <code>redisClient</code>, now just <code>client</code>. The structure<br>has many fields, here we’ll just show the main ones:</p>
+<pre><code>struct client &#123;
+    int fd;
+    sds querybuf;
+    int argc;
+    robj **argv;
+    redisDb *db;
+    int flags;
+    list *reply;
+    char buf[PROTO_REPLY_CHUNK_BYTES];
+    ... many other fields ...
+&#125;
+</code></pre>
+<p>The client structure defines a <em>connected client</em>:</p>
+<ul>
+<li>The <code>fd</code> field is the client socket file descriptor.</li>
+<li><code>argc</code> and <code>argv</code> are populated with the command the client is executing, so that functions implementing a given Redis command can read the arguments.</li>
+<li><code>querybuf</code> accumulates the requests from the client, which are parsed by the Redis server according to the Redis protocol and executed by calling the implementations of the commands the client is executing.</li>
+<li><code>reply</code> and <code>buf</code> are dynamic and static buffers that accumulate the replies the server sends to the client. These buffers are incrementally written to the socket as soon as the file descriptor is writeable.</li>
+</ul>
+<p>As you can see in the client structure above, arguments in a command<br>are described as <code>robj</code> structures. The following is the full <code>robj</code><br>structure, which defines a <em>Redis object</em>:</p>
+<pre><code>typedef struct redisObject &#123;
+    unsigned type:4;
+    unsigned encoding:4;
+    unsigned lru:LRU_BITS; /* lru time (relative to server.lruclock) */
+    int refcount;
+    void *ptr;
+&#125; robj;
+</code></pre>
+<p>Basically this structure can represent all the basic Redis data types like<br>strings, lists, sets, sorted sets and so forth. The interesting thing is that<br>it has a <code>type</code> field, so that it is possible to know what type a given<br>object has, and a <code>refcount</code>, so that the same object can be referenced<br>in multiple places without allocating it multiple times. Finally the <code>ptr</code><br>field points to the actual representation of the object, which might vary<br>even for the same type, depending on the <code>encoding</code> used.</p>
+<p>Redis objects are used extensively in the Redis internals, however in order<br>to avoid the overhead of indirect accesses, recently in many places<br>we just use plain dynamic strings not wrapped inside a Redis object.</p>
+<h2 id="server-c"><a href="#server-c" class="headerlink" title="server.c"></a>server.c</h2><p>This is the entry point of the Redis server, where the <code>main()</code> function<br>is defined. The following are the most important steps in order to startup<br>the Redis server.</p>
+<ul>
+<li><code>initServerConfig()</code> sets up the default values of the <code>server</code> structure.</li>
+<li><code>initServer()</code> allocates the data structures needed to operate, setup the listening socket, and so forth.</li>
+<li><code>aeMain()</code> starts the event loop which listens for new connections.</li>
+</ul>
+<p>There are two special functions called periodically by the event loop:</p>
+<ol>
+<li><code>serverCron()</code> is called periodically (according to <code>server.hz</code> frequency), and performs tasks that must be performed from time to time, like checking for timed out clients.</li>
+<li><code>beforeSleep()</code> is called every time the event loop fired, Redis served a few requests, and is returning back into the event loop.</li>
+</ol>
+<p>Inside server.c you can find code that handles other vital things of the Redis server:</p>
+<ul>
+<li><code>call()</code> is used in order to call a given command in the context of a given client.</li>
+<li><code>activeExpireCycle()</code> handles eviction of keys with a time to live set via the <code>EXPIRE</code> command.</li>
+<li><code>performEvictions()</code> is called when a new write command should be performed but Redis is out of memory according to the <code>maxmemory</code> directive.</li>
+<li>The global variable <code>redisCommandTable</code> defines all the Redis commands, specifying the name of the command, the function implementing the command, the number of arguments required, and other properties of each command.</li>
+</ul>
+<h2 id="networking-c"><a href="#networking-c" class="headerlink" title="networking.c"></a>networking.c</h2><p>This file defines all the I/O functions with clients, masters and replicas<br>(which in Redis are just special clients):</p>
+<ul>
+<li><code>createClient()</code> allocates and initializes a new client.</li>
+<li>the <code>addReply*()</code> family of functions are used by command implementations in order to append data to the client structure, that will be transmitted to the client as a reply for a given command executed.</li>
+<li><code>writeToClient()</code> transmits the data pending in the output buffers to the client and is called by the <em>writable event handler</em> <code>sendReplyToClient()</code>.</li>
+<li><code>readQueryFromClient()</code> is the <em>readable event handler</em> and accumulates data read from the client into the query buffer.</li>
+<li><code>processInputBuffer()</code> is the entry point in order to parse the client query buffer according to the Redis protocol. Once commands are ready to be processed, it calls <code>processCommand()</code> which is defined inside <code>server.c</code> in order to actually execute the command.</li>
+<li><code>freeClient()</code> deallocates, disconnects and removes a client.</li>
+</ul>
+<h2 id="aof-c-and-rdb-c"><a href="#aof-c-and-rdb-c" class="headerlink" title="aof.c and rdb.c"></a>aof.c and rdb.c</h2><p>As you can guess from the names, these files implement the RDB and AOF<br>persistence for Redis. Redis uses a persistence model based on the <code>fork()</code><br>system call in order to create a thread with the same (shared) memory<br>content of the main Redis thread. This secondary thread dumps the content<br>of the memory on disk. This is used by <code>rdb.c</code> to create the snapshots<br>on disk and by <code>aof.c</code> in order to perform the AOF rewrite when the<br>append only file gets too big.</p>
+<p>The implementation inside <code>aof.c</code> has additional functions in order to<br>implement an API that allows commands to append new commands into the AOF<br>file as clients execute them.</p>
+<p>The <code>call()</code> function defined inside <code>server.c</code> is responsible for calling<br>the functions that in turn will write the commands into the AOF.</p>
+<h2 id="db-c"><a href="#db-c" class="headerlink" title="db.c"></a>db.c</h2><p>Certain Redis commands operate on specific data types; others are general.<br>Examples of generic commands are <code>DEL</code> and <code>EXPIRE</code>. They operate on keys<br>and not on their values specifically. All those generic commands are<br>defined inside <code>db.c</code>.</p>
+<p>Moreover <code>db.c</code> implements an API in order to perform certain operations<br>on the Redis dataset without directly accessing the internal data structures.</p>
+<p>The most important functions inside <code>db.c</code> which are used in many command<br>implementations are the following:</p>
+<ul>
+<li><code>lookupKeyRead()</code> and <code>lookupKeyWrite()</code> are used in order to get a pointer to the value associated to a given key, or <code>NULL</code> if the key does not exist.</li>
+<li><code>dbAdd()</code> and its higher level counterpart <code>setKey()</code> create a new key in a Redis database.</li>
+<li><code>dbDelete()</code> removes a key and its associated value.</li>
+<li><code>emptyDb()</code> removes an entire single database or all the databases defined.</li>
+</ul>
+<p>The rest of the file implements the generic commands exposed to the client.</p>
+<h2 id="object-c"><a href="#object-c" class="headerlink" title="object.c"></a>object.c</h2><p>The <code>robj</code> structure defining Redis objects was already described. Inside<br><code>object.c</code> there are all the functions that operate with Redis objects at<br>a basic level, like functions to allocate new objects, handle the reference<br>counting and so forth. Notable functions inside this file:</p>
+<ul>
+<li><code>incrRefCount()</code> and <code>decrRefCount()</code> are used in order to increment or decrement an object reference count. When it drops to 0 the object is finally freed.</li>
+<li><code>createObject()</code> allocates a new object. There are also specialized functions to allocate string objects having a specific content, like <code>createStringObjectFromLongLong()</code> and similar functions.</li>
+</ul>
+<p>This file also implements the <code>OBJECT</code> command.</p>
+<h2 id="replication-c"><a href="#replication-c" class="headerlink" title="replication.c"></a>replication.c</h2><p>This is one of the most complex files inside Redis, it is recommended to<br>approach it only after getting a bit familiar with the rest of the code base.<br>In this file there is the implementation of both the master and replica role<br>of Redis.</p>
+<p>One of the most important functions inside this file is <code>replicationFeedSlaves()</code> that writes commands to the clients representing replica instances connected<br>to our master, so that the replicas can get the writes performed by the clients:<br>this way their data set will remain synchronized with the one in the master.</p>
+<p>This file also implements both the <code>SYNC</code> and <code>PSYNC</code> commands that are<br>used in order to perform the first synchronization between masters and<br>replicas, or to continue the replication after a disconnection.</p>
+<h2 id="Other-C-files"><a href="#Other-C-files" class="headerlink" title="Other C files"></a>Other C files</h2><ul>
+<li><code>t_hash.c</code>, <code>t_list.c</code>, <code>t_set.c</code>, <code>t_string.c</code>, <code>t_zset.c</code> and <code>t_stream.c</code> contains the implementation of the Redis data types. They implement both an API to access a given data type, and the client command implementations for these data types.</li>
+<li><code>ae.c</code> implements the Redis event loop, it’s a self contained library which is simple to read and understand.</li>
+<li><code>sds.c</code> is the Redis string library, check <a target="_blank" rel="noopener" href="http://github.com/antirez/sds">http://github.com/antirez/sds</a> for more information.</li>
+<li><code>anet.c</code> is a library to use POSIX networking in a simpler way compared to the raw interface exposed by the kernel.</li>
+<li><code>dict.c</code> is an implementation of a non-blocking hash table which rehashes incrementally.</li>
+<li><code>scripting.c</code> implements Lua scripting. It is completely self-contained and isolated from the rest of the Redis implementation and is simple enough to understand if you are familiar with the Lua API.</li>
+<li><code>cluster.c</code> implements the Redis Cluster. Probably a good read only after being very familiar with the rest of the Redis code base. If you want to read <code>cluster.c</code> make sure to read the <a target="_blank" rel="noopener" href="http://redis.io/topics/cluster-spec">Redis Cluster specification</a>.</li>
+</ul>
+<h2 id="Anatomy-of-a-Redis-command"><a href="#Anatomy-of-a-Redis-command" class="headerlink" title="Anatomy of a Redis command"></a>Anatomy of a Redis command</h2><p>All the Redis commands are defined in the following way:</p>
+<pre><code>void foobarCommand(client *c) &#123;
+    printf(&quot;%s&quot;,c-&gt;argv[1]-&gt;ptr); /* Do something with the argument. */
+    addReply(c,shared.ok); /* Reply something to the client. */
+&#125;
+</code></pre>
+<p>The command is then referenced inside <code>server.c</code> in the command table:</p>
+<pre><code>&#123;&quot;foobar&quot;,foobarCommand,2,&quot;rtF&quot;,0,NULL,0,0,0,0,0&#125;,
+</code></pre>
+<p>In the above example <code>2</code> is the number of arguments the command takes,<br>while <code>&quot;rtF&quot;</code> are the command flags, as documented in the command table<br>top comment inside <code>server.c</code>.</p>
+<p>After the command operates in some way, it returns a reply to the client,<br>usually using <code>addReply()</code> or a similar function defined inside <code>networking.c</code>.</p>
+<p>There are tons of command implementations inside the Redis source code<br>that can serve as examples of actual commands implementations. Writing<br>a few toy commands can be a good exercise to get familiar with the code base.</p>
+<p>There are also many other files not described here, but it is useless to<br>cover everything. We just want to help you with the first steps.<br>Eventually you’ll find your way inside the Redis code base :-)</p>
+<p>Enjoy!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/12/redis/" data-id="cklm0jreh000z2j952nyr6p68" data-title="Redis" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-laravel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/12/12/laravel/" class="article-date">
+  <time class="dt-published" datetime="2020-12-12T23:00:00.000Z" itemprop="datePublished">2020-12-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Laravel/">Laravel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/12/12/laravel/">Laravel</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+
+<p align="center">
+<a target="_blank" rel="noopener" href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a target="_blank" rel="noopener" href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a target="_blank" rel="noopener" href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a target="_blank" rel="noopener" href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
+
+<h2 id="About-Laravel"><a href="#About-Laravel" class="headerlink" title="About Laravel"></a>About Laravel</h2><p>Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://laravel.com/docs/routing">Simple, fast routing engine</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://laravel.com/docs/container">Powerful dependency injection container</a>.</li>
+<li>Multiple back-ends for <a target="_blank" rel="noopener" href="https://laravel.com/docs/session">session</a> and <a target="_blank" rel="noopener" href="https://laravel.com/docs/cache">cache</a> storage.</li>
+<li>Expressive, intuitive <a target="_blank" rel="noopener" href="https://laravel.com/docs/eloquent">database ORM</a>.</li>
+<li>Database agnostic <a target="_blank" rel="noopener" href="https://laravel.com/docs/migrations">schema migrations</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://laravel.com/docs/queues">Robust background job processing</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://laravel.com/docs/broadcasting">Real-time event broadcasting</a>.</li>
+</ul>
+<p>Laravel is accessible, powerful, and provides tools required for large, robust applications.</p>
+<h2 id="Learning-Laravel"><a href="#Learning-Laravel" class="headerlink" title="Learning Laravel"></a>Learning Laravel</h2><p>Laravel has the most extensive and thorough <a target="_blank" rel="noopener" href="https://laravel.com/docs">documentation</a> and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.</p>
+<p>If you don’t feel like reading, <a target="_blank" rel="noopener" href="https://laracasts.com/">Laracasts</a> can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.</p>
+<h2 id="Laravel-Sponsors"><a href="#Laravel-Sponsors" class="headerlink" title="Laravel Sponsors"></a>Laravel Sponsors</h2><p>We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel <a target="_blank" rel="noopener" href="https://patreon.com/taylorotwell">Patreon page</a>.</p>
+<h3 id="Premium-Partners"><a href="#Premium-Partners" class="headerlink" title="Premium Partners"></a>Premium Partners</h3><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://vehikl.com/">Vehikl</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://tighten.co/">Tighten Co.</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://kirschbaumdevelopment.com/">Kirschbaum Development Group</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://64robots.com/">64 Robots</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://cubettech.com/">Cubet Techno Labs</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://cyber-duck.co.uk/">Cyber-Duck</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.many.co.uk/">Many</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.webdock.io/en">Webdock, Fast VPS Hosting</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://devsquad.com/">DevSquad</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://www.curotec.com/">Curotec</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://op.gg/">OP.GG</a></strong></li>
+</ul>
+<h2 id="Contributing"><a href="#Contributing" class="headerlink" title="Contributing"></a>Contributing</h2><p>Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the <a target="_blank" rel="noopener" href="https://laravel.com/docs/contributions">Laravel documentation</a>.</p>
+<h2 id="Code-of-Conduct"><a href="#Code-of-Conduct" class="headerlink" title="Code of Conduct"></a>Code of Conduct</h2><p>In order to ensure that the Laravel community is welcoming to all, please review and abide by the <a target="_blank" rel="noopener" href="https://laravel.com/docs/contributions#code-of-conduct">Code of Conduct</a>.</p>
+<h2 id="Security-Vulnerabilities"><a href="#Security-Vulnerabilities" class="headerlink" title="Security Vulnerabilities"></a>Security Vulnerabilities</h2><p>If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via <a href="mailto:taylor@laravel.com">taylor@laravel.com</a>. All security vulnerabilities will be promptly addressed.</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>The Laravel framework is open-sourced software licensed under the <a target="_blank" rel="noopener" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/12/laravel/" data-id="cklm0jre000042j95d791bqyy" data-title="Laravel" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/" rel="tag">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-yii2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/11/12/yii2/" class="article-date">
+  <time class="dt-published" datetime="2020-11-12T23:00:00.000Z" itemprop="datePublished">2020-11-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Yii2/">Yii2</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/11/12/yii2/">Yii2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p align="center">
+    <a href="https://www.yiiframework.com/" target="_blank">
+        <img src="https://www.yiiframework.com/files/logo/yii.png" width="400" alt="Yii Framework" />
+    </a>
+</p>
+
+<p>Yii 2 is a modern framework designed to be a solid foundation for your PHP application.</p>
+<p>It is fast, secure and efficient and works right out of the box pre-configured with reasonable defaults.<br>The framework is easy to adjust to meet your needs, because Yii has been designed to be flexible.</p>
+<p><a target="_blank" rel="noopener" href="https://packagist.org/packages/yiisoft/yii2"><img src="https://img.shields.io/packagist/v/yiisoft/yii2.svg" alt="Latest Stable Version"></a><br><a target="_blank" rel="noopener" href="https://packagist.org/packages/yiisoft/yii2"><img src="https://img.shields.io/packagist/dt/yiisoft/yii2.svg" alt="Total Downloads"></a><br><a target="_blank" rel="noopener" href="https://github.com/yiisoft/yii2/actions"><img src="https://github.com/yiisoft/yii2/workflows/build/badge.svg" alt="Build Status"></a><br><a target="_blank" rel="noopener" href="https://scrutinizer-ci.com/g/yiisoft/yii2/"><img src="https://scrutinizer-ci.com/g/yiisoft/yii2/badges/coverage.png?s=31d80f1036099e9d6a3e4d7738f6b000b3c3d10e" alt="Code Coverage"></a><br><a target="_blank" rel="noopener" href="https://scrutinizer-ci.com/g/yiisoft/yii2/"><img src="https://scrutinizer-ci.com/g/yiisoft/yii2/badges/quality-score.png?s=b1074a1ff6d0b214d54fa5ab7abbb90fc092471d" alt="Scrutinizer Quality Score"></a></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ul>
+<li>The minimum required PHP version of Yii is PHP 5.4.</li>
+<li>It works best with PHP 7.</li>
+<li><a target="_blank" rel="noopener" href="https://www.yiiframework.com/doc-2.0/guide-start-installation.html">Follow the Definitive Guide</a><br>in order to get step by step instructions.</li>
+</ul>
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><ul>
+<li>A <a target="_blank" rel="noopener" href="https://www.yiiframework.com/doc/guide/2.0">Definitive Guide</a> and<br>a <a target="_blank" rel="noopener" href="https://www.yiiframework.com/doc/api/2.0">Class Reference</a> cover every detail<br>of the framework.</li>
+<li>There is a <a target="_blank" rel="noopener" href="https://www.yiiframework.com/doc/download/yii-guide-2.0-en.pdf">PDF version</a> of the Definitive Guide<br>and a <a target="_blank" rel="noopener" href="http://stuff.cebe.cc/yii2docs/">Definitive Guide Mirror</a> which is updated every 15 minutes.</li>
+<li>For Yii 1.1 users, there is <a target="_blank" rel="noopener" href="https://www.yiiframework.com/doc/guide/2.0/en/intro-upgrade-from-v1">Upgrading from Yii 1.1</a><br>to get an idea of what has changed in 2.0.</li>
+</ul>
+<h2 id="Community"><a href="#Community" class="headerlink" title="Community"></a>Community</h2><ul>
+<li>Participate in <a target="_blank" rel="noopener" href="https://www.yiiframework.com/forum/">discussions at forums</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://join.slack.com/t/yii/shared_invite/MjIxMjMxMTk5MTU1LTE1MDE3MDAwMzMtM2VkMTMyMjY1Ng">Community Slack</a> and <a target="_blank" rel="noopener" href="https://www.yiiframework.com/chat/">Chat in IRC</a>.</li>
+<li>Follow us on <a target="_blank" rel="noopener" href="https://www.facebook.com/groups/yiitalk/">Facebook</a>, <a target="_blank" rel="noopener" href="https://twitter.com/yiiframework">Twitter</a><br>and <a target="_blank" rel="noopener" href="https://github.com/yiisoft/yii2">GitHub</a>.</li>
+<li>Check <a target="_blank" rel="noopener" href="https://github.com/yiisoft/yii2/wiki/communities">other communities</a>.</li>
+</ul>
+<h2 id="Contributing"><a href="#Contributing" class="headerlink" title="Contributing"></a>Contributing</h2><p>The framework is <a href="LICENSE.md">Open Source</a> powered by <a target="_blank" rel="noopener" href="https://github.com/yiisoft/yii2/graphs/contributors">an excellent community</a>.</p>
+<p>You may join us and:</p>
+<ul>
+<li><a href="docs/internals/report-an-issue.md">Report an issue</a></li>
+<li><a href="docs/internals/translation-workflow.md">Translate documentation or messages</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yiiframework.com/forum/index.php/forum/42-general-discussions-for-yii-20/">Give us feedback or start a design discussion</a></li>
+<li><a href="docs/internals/git-workflow.md">Contribute to the core code or fix bugs</a></li>
+<li><a href="#sponsoring">Become a sponsor</a></li>
+</ul>
+<h3 id="Reporting-Security-issues"><a href="#Reporting-Security-issues" class="headerlink" title="Reporting Security issues"></a>Reporting Security issues</h3><p>Please refer to a <a target="_blank" rel="noopener" href="https://www.yiiframework.com/security/">special page at the website</a><br>describing proper workflow for security issue reports.</p>
+<h3 id="Directory-Structure"><a href="#Directory-Structure" class="headerlink" title="Directory Structure"></a>Directory Structure</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">build&#x2F;               internally used build tools</span><br><span class="line">docs&#x2F;                documentation</span><br><span class="line">framework&#x2F;           core framework code</span><br><span class="line">tests&#x2F;               tests of the core framework code</span><br></pre></td></tr></table></figure>
+<h3 id="Spreading-the-Word"><a href="#Spreading-the-Word" class="headerlink" title="Spreading the Word"></a>Spreading the Word</h3><p>Acknowledging or citing Yii 2 is as important as direct contributions.</p>
+<p><strong>In presentations</strong></p>
+<p>If you are giving a presentation or talk featuring work that makes use of Yii 2 and would like to acknowledge it,<br>we suggest using <a target="_blank" rel="noopener" href="https://www.yiiframework.com/logo/">our logo</a> on your title slide.</p>
+<p><strong>In projects</strong></p>
+<p>If you are using Yii 2 as part of an OpenSource project, a way to acknowledge it is to<br><a target="_blank" rel="noopener" href="https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat">use a special badge</a> in your README:    </p>
+<p><img src="https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat" alt="Yii2"></p>
+<p>If your code is hosted at GitHub, you can place the following in your README.md file to get the badge:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![Yii2](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Powered_by-Yii_Framework-green.svg?style&#x3D;flat)](https:&#x2F;&#x2F;www.yiiframework.com&#x2F;)</span><br></pre></td></tr></table></figure>
+<h3 id="Sponsoring"><a href="#Sponsoring" class="headerlink" title="Sponsoring"></a>Sponsoring</h3><p>Support this project by becoming a sponsor or a backer. </p>
+<p><a target="_blank" rel="noopener" href="https://opencollective.com/yiisoft"><img src="https://opencollective.com/yiisoft/sponsors/badge.svg" alt="OpenCollective sponsors"></a> <a target="_blank" rel="noopener" href="https://opencollective.com/yiisoft"><img src="https://opencollective.com/yiisoft/backers/badge.svg" alt="OpenCollective backers"></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/12/yii2/" data-id="cklm0jre200062j950wbad1wg" data-title="Yii2" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yii2/" rel="tag">yii2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-react" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/10/12/react/" class="article-date">
+  <time class="dt-published" datetime="2020-10-12T22:00:00.000Z" itemprop="datePublished">2020-10-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/10/12/react/">React</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="React-middot"><a href="#React-middot" class="headerlink" title="React &middot;    "></a><a target="_blank" rel="noopener" href="https://reactjs.org/">React</a> &middot; <a target="_blank" rel="noopener" href="https://github.com/facebook/react/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a> <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/react"><img src="https://img.shields.io/npm/v/react.svg?style=flat" alt="npm version"></a> <a target="_blank" rel="noopener" href="https://circleci.com/gh/facebook/react"><img src="https://circleci.com/gh/facebook/react.svg?style=shield&circle-token=:circle-token" alt="CircleCI Status"></a> <a target="_blank" rel="noopener" href="https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a></h1><p>React is a JavaScript library for building user interfaces.</p>
+<ul>
+<li><strong>Declarative:</strong> React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make your code more predictable, simpler to understand, and easier to debug.</li>
+<li><strong>Component-Based:</strong> Build encapsulated components that manage their own state, then compose them to make complex UIs. Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.</li>
+<li><strong>Learn Once, Write Anywhere:</strong> We don’t make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code. React can also render on the server using Node and power mobile apps using <a target="_blank" rel="noopener" href="https://reactnative.dev/">React Native</a>.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://reactjs.org/docs/getting-started.html">Learn how to use React in your own project</a>.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>React has been designed for gradual adoption from the start, and <strong>you can use as little or as much React as you need</strong>:</p>
+<ul>
+<li>Use <a target="_blank" rel="noopener" href="https://reactjs.org/docs/getting-started.html#online-playgrounds">Online Playgrounds</a> to get a taste of React.</li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/add-react-to-a-website.html">Add React to a Website</a> as a <code>&lt;script&gt;</code> tag in one minute.</li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/create-a-new-react-app.html">Create a New React App</a> if you’re looking for a powerful JavaScript toolchain.</li>
+</ul>
+<p>You can use React as a <code>&lt;script&gt;</code> tag from a <a target="_blank" rel="noopener" href="https://reactjs.org/docs/cdn-links.html">CDN</a>, or as a <code>react</code> package on <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/react">npm</a>.</p>
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>You can find the React documentation <a target="_blank" rel="noopener" href="https://reactjs.org/docs">on the website</a>.  </p>
+<p>Check out the <a target="_blank" rel="noopener" href="https://reactjs.org/docs/getting-started.html">Getting Started</a> page for a quick overview.</p>
+<p>The documentation is divided into several sections:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/tutorial/tutorial.html">Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/hello-world.html">Main Concepts</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/jsx-in-depth.html">Advanced Guides</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/react-api.html">API Reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/community/support.html">Where to Get Support</a></li>
+<li><a target="_blank" rel="noopener" href="https://reactjs.org/docs/how-to-contribute.html">Contributing Guide</a></li>
+</ul>
+<p>You can improve it by sending pull requests to <a target="_blank" rel="noopener" href="https://github.com/reactjs/reactjs.org">this repository</a>.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>We have several examples <a target="_blank" rel="noopener" href="https://reactjs.org/">on the website</a>. Here is the first one to get you started:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloMessage</span>(<span class="params">&#123; name &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello &#123;name&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage name=<span class="string">&quot;Taylor&quot;</span> /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&#x27;container&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>This example will render “Hello Taylor” into a container on the page.</p>
+<p>You’ll notice that we used an HTML-like syntax; <a target="_blank" rel="noopener" href="https://reactjs.org/docs/introducing-jsx.html">we call it JSX</a>. JSX is not required to use React, but it makes code more readable, and writing it feels like writing HTML. If you’re using React as a <code>&lt;script&gt;</code> tag, read <a target="_blank" rel="noopener" href="https://reactjs.org/docs/add-react-to-a-website.html#optional-try-react-with-jsx">this section</a> on integrating JSX; otherwise, the <a target="_blank" rel="noopener" href="https://reactjs.org/docs/create-a-new-react-app.html">recommended JavaScript toolchains</a> handle it automatically.</p>
+<h2 id="Contributing"><a href="#Contributing" class="headerlink" title="Contributing"></a>Contributing</h2><p>The main purpose of this repository is to continue evolving React core, making it faster and easier to use. Development of React happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving React.</p>
+<h3 id="Code-of-Conduct"><a href="#Code-of-Conduct" class="headerlink" title="Code of Conduct"></a><a target="_blank" rel="noopener" href="https://code.fb.com/codeofconduct">Code of Conduct</a></h3><p>Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read <a target="_blank" rel="noopener" href="https://code.fb.com/codeofconduct">the full text</a> so that you can understand what actions will and will not be tolerated.</p>
+<h3 id="Contributing-Guide"><a href="#Contributing-Guide" class="headerlink" title="Contributing Guide"></a><a target="_blank" rel="noopener" href="https://reactjs.org/contributing/how-to-contribute.html">Contributing Guide</a></h3><p>Read our <a target="_blank" rel="noopener" href="https://reactjs.org/contributing/how-to-contribute.html">contributing guide</a> to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.</p>
+<h3 id="Good-First-Issues"><a href="#Good-First-Issues" class="headerlink" title="Good First Issues"></a>Good First Issues</h3><p>To help you get your feet wet and get you familiar with our contribution process, we have a list of <a target="_blank" rel="noopener" href="https://github.com/facebook/react/labels/good%20first%20issue">good first issues</a> that contain bugs which have a relatively limited scope. This is a great place to get started.</p>
+<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><p>React is <a href="./LICENSE">MIT licensed</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/12/react/" data-id="cklm0jre100052j95bjuj4dme" data-title="React" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/" rel="tag">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-vue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/09/12/vue/" class="article-date">
+  <time class="dt-published" datetime="2020-09-12T22:00:00.000Z" itemprop="datePublished">2020-09-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/09/12/vue/">Vue</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p align="center"><a href="https://vuejs.org" target="_blank" rel="noopener noreferrer"><img width="100" src="https://vuejs.org/images/logo.png" alt="Vue logo"></a></p>
+
+<p align="center">
+  <a target="_blank" rel="noopener" href="https://circleci.com/gh/vuejs/vue/tree/dev"><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg?sanitize=true" alt="Build Status"></a>
+  <a target="_blank" rel="noopener" href="https://codecov.io/github/vuejs/vue?branch=dev"><img src="https://img.shields.io/codecov/c/github/vuejs/vue/dev.svg?sanitize=true" alt="Coverage Status"></a>
+  <a target="_blank" rel="noopener" href="https://npmcharts.com/compare/vue?minimal=true"><img src="https://img.shields.io/npm/dm/vue.svg?sanitize=true" alt="Downloads"></a>
+  <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/v/vue.svg?sanitize=true" alt="Version"></a>
+  <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/vue.svg?sanitize=true" alt="License"></a>
+  <a target="_blank" rel="noopener" href="https://chat.vuejs.org/"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg?sanitize=true" alt="Chat"></a>
+  <br>
+  <a target="_blank" rel="noopener" href="https://app.saucelabs.com/builds/50f8372d79f743a3b25fb6ca4851ca4c"><img src="https://app.saucelabs.com/buildstatus/vuejs" alt="Build Status"></a>
+</p>
+
+<h2 align="center">Supporting Vue.js</h2>
+
+<p>Vue.js is an MIT-licensed open source project with its ongoing development made possible entirely by the support of these awesome <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/blob/dev/BACKERS.md">backers</a>. If you’d like to join them, please consider:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.patreon.com/evanyou">Become a backer or sponsor on Patreon</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://opencollective.com/vuejs">Become a backer or sponsor on Open Collective</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://vuejs.org/support-vuejs/#One-time-Donations">One-time donation via PayPal or crypto-currencies.</a></li>
+</ul>
+<h4 id="What’s-the-difference-between-Patreon-and-OpenCollective"><a href="#What’s-the-difference-between-Patreon-and-OpenCollective" class="headerlink" title="What’s the difference between Patreon and OpenCollective?"></a>What’s the difference between Patreon and OpenCollective?</h4><p>Funds donated via Patreon go directly to support Evan You’s full-time work on Vue.js. Funds donated via OpenCollective are managed with transparent expenses and will be used for compensating work and expenses for core team members or sponsoring community events. Your name/logo will receive proper recognition and exposure by donating on either platform.</p>
+<h3 align="center">Special Sponsors</h3>
+<!--special start-->
+
+<p align="center">
+  <a href="https://autocode.com/" target="_blank">
+    <img width="260px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/autocode.svg?sanitize=true">
+  </a>
+</p>
+  
+<!--special end-->
+
+<h3 align="center">Platinum Sponsors</h3>
+
+<!--platinum start-->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank">
+          <img width="222px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/vueschool.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://vehikl.com/" target="_blank">
+          <img width="222px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/vehikl.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://retool.com/?utm_source=sponsor&utm_campaign=vue" target="_blank">
+          <img width="222px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/retool.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://passionatepeople.io/" target="_blank">
+          <img width="222px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/passionate_people.png">
+        </a>
+      </td>
+    </tr><tr></tr>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://www.storyblok.com" target="_blank">
+          <img width="222px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/storyblok.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank">
+          <img width="222px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/ionic.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://nuxtjs.org/" target="_blank">
+          <img width="222px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/nuxt.png">
+        </a>
+      </td>
+    </tr><tr></tr>
+  </tbody>
+</table>
+<!--platinum end-->
+
+<!--special-china start-->
+<h3 align="center">Platinum Sponsors (China)</h3>
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="http://www.dcloud.io/?hmsr=vuejsorg&hmpl=&hmcu=&hmkw=&hmci=" target="_blank">
+          <img width="177px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/dcloud.gif">
+        </a>
+      </td>
+    </tr><tr></tr>
+  </tbody>
+</table>
+<!--special-china end-->
+
+<h3 align="center">Gold Sponsors</h3>
+
+<!--gold start-->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://www.vuemastery.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/vuemastery.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://laravel.com" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/laravel.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://htmlburger.com" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/html_burger.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://www.frontenddeveloperlove.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/frontendlove.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://onsen.io/vue/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/onsen_ui.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://neds.com.au/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/neds.png">
+        </a>
+      </td>
+    </tr><tr></tr>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://icons8.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/icons_8.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://vuejobs.com/?ref=vuejs" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/vuejobs.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://tidelift.com/subscription/npm/vue" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/tidelift.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://www.firesticktricks.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/firestick_tricks.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://intygrate.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/intygrate.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="http://en.shopware.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/shopware_ag.png">
+        </a>
+      </td>
+    </tr><tr></tr>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://www.vpnranks.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/vpnranks.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://www.bacancytechnology.com/hire-vuejs-developer" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/bacancy_technology.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://www.bestvpn.co/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/bestvpn_co.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://www.y8.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/y8.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://js.devexpress.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/devexpress.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://fastcoding.jp/javascript/ " target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/fastcoding_inc.svg?sanitize=true">
+        </a>
+      </td>
+    </tr><tr></tr>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://usave.co.uk/utilities/broadband" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/usave.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://www.foo.software" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/foo.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://flatlogic.com/templates" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/flatlogic_templates.svg?sanitize=true">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="http://moovweb.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/moovweb.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://vpn-review.com/netflix-vpn" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/vpn_review.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://cosmos.network/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/tendermint.png">
+        </a>
+      </td>
+    </tr><tr></tr>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://www.okayhq.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/okay.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://www.vpsserver.com" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/vpsserver_com.png">
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://aussiecasinohex.com/" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/aussiecasinohex.svg?sanitize=true">
+        </a>
+      </td>
+    </tr><tr></tr>
+  </tbody>
+</table>
+<!--gold end-->
+
+<h3 align="center">Sponsors via <a target="_blank" rel="noopener" href="https://opencollective.com/vuejs">Open Collective</a></h3>
+
+<h4 align="center">Platinum</h4>
+
+<p><a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/0/website" target="_blank" rel="noopener noreferrer"><img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/0/avatar.svg?sanitize=true"></a><br><a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/1/website" target="_blank" rel="noopener noreferrer"><img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/1/avatar.svg?sanitize=true"></a></p>
+<h4 align="center">Gold</h4>
+
+<p><a href="https://opencollective.com/vuejs/tiers/gold-sponsors/0/website" target="_blank" rel="noopener noreferrer"><img src="https://opencollective.com/vuejs/tiers/gold-sponsors/0/avatar.svg?sanitize=true" height="60px"></a><br><a href="https://opencollective.com/vuejs/tiers/gold-sponsors/1/website" target="_blank" rel="noopener noreferrer"><img src="https://opencollective.com/vuejs/tiers/gold-sponsors/1/avatar.svg?sanitize=true" height="60px"></a><br><a href="https://opencollective.com/vuejs/tiers/gold-sponsors/2/website" target="_blank" rel="noopener noreferrer"><img src="https://opencollective.com/vuejs/tiers/gold-sponsors/2/avatar.svg?sanitize=true" height="60px"></a><br><a href="https://opencollective.com/vuejs/tiers/gold-sponsors/3/website" target="_blank" rel="noopener noreferrer"><img src="https://opencollective.com/vuejs/tiers/gold-sponsors/3/avatar.svg?sanitize=true" height="60px"></a><br><a href="https://opencollective.com/vuejs/tiers/gold-sponsors/4/website" target="_blank" rel="noopener noreferrer"><img src="https://opencollective.com/vuejs/tiers/gold-sponsors/4/avatar.svg?sanitize=true" height="60px"></a></p>
+<hr>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Vue (pronounced <code>/vjuː/</code>, like view) is a <strong>progressive framework</strong> for building user interfaces. It is designed from the ground up to be incrementally adoptable, and can easily scale between a library and a framework depending on different use cases. It consists of an approachable core library that focuses on the view layer only, and an ecosystem of supporting libraries that helps you tackle complexity in large Single-Page Applications.</p>
+<h4 id="Browser-Compatibility"><a href="#Browser-Compatibility" class="headerlink" title="Browser Compatibility"></a>Browser Compatibility</h4><p>Vue.js supports all browsers that are <a target="_blank" rel="noopener" href="https://kangax.github.io/compat-table/es5/">ES5-compliant</a> (IE8 and below are not supported).</p>
+<h2 id="Ecosystem"><a href="#Ecosystem" class="headerlink" title="Ecosystem"></a>Ecosystem</h2><table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-router">vue-router</a></td>
+<td><a target="_blank" rel="noopener" href="https://npmjs.com/package/vue-router"><img src="https://img.shields.io/npm/v/vue-router.svg" alt="vue-router-status"></a></td>
+<td>Single-page application routing</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex">vuex</a></td>
+<td><a target="_blank" rel="noopener" href="https://npmjs.com/package/vuex"><img src="https://img.shields.io/npm/v/vuex.svg" alt="vuex-status"></a></td>
+<td>Large-scale state management</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-cli">vue-cli</a></td>
+<td><a target="_blank" rel="noopener" href="https://npmjs.com/package/@vue/cli"><img src="https://img.shields.io/npm/v/@vue/cli.svg" alt="vue-cli-status"></a></td>
+<td>Project scaffolding</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-loader">vue-loader</a></td>
+<td><a target="_blank" rel="noopener" href="https://npmjs.com/package/vue-loader"><img src="https://img.shields.io/npm/v/vue-loader.svg" alt="vue-loader-status"></a></td>
+<td>Single File Component (<code>*.vue</code> file) loader for webpack</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer">vue-server-renderer</a></td>
+<td><a target="_blank" rel="noopener" href="https://npmjs.com/package/vue-server-renderer"><img src="https://img.shields.io/npm/v/vue-server-renderer.svg" alt="vue-server-renderer-status"></a></td>
+<td>Server-side rendering support</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-class-component">vue-class-component</a></td>
+<td><a target="_blank" rel="noopener" href="https://npmjs.com/package/vue-class-component"><img src="https://img.shields.io/npm/v/vue-class-component.svg" alt="vue-class-component-status"></a></td>
+<td>TypeScript decorator for a class-based API</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-rx">vue-rx</a></td>
+<td><a target="_blank" rel="noopener" href="https://npmjs.com/package/vue-rx"><img src="https://img.shields.io/npm/v/vue-rx.svg" alt="vue-rx-status"></a></td>
+<td>RxJS integration</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-devtools">vue-devtools</a></td>
+<td><a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd"><img src="https://img.shields.io/chrome-web-store/v/nhdogjmejiglipccpnnnanhbledajbpd.svg" alt="vue-devtools-status"></a></td>
+<td>Browser DevTools extension</td>
+</tr>
+</tbody></table>
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>To check out <a target="_blank" rel="noopener" href="https://vuejs.org/v2/examples/">live examples</a> and docs, visit <a target="_blank" rel="noopener" href="https://vuejs.org/">vuejs.org</a>.</p>
+<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><p>For questions and support please use <a target="_blank" rel="noopener" href="https://forum.vuejs.org/">the official forum</a> or <a target="_blank" rel="noopener" href="https://chat.vuejs.org/">community chat</a>. The issue list of this repo is <strong>exclusively</strong> for bug reports and feature requests.</p>
+<h2 id="Issues"><a href="#Issues" class="headerlink" title="Issues"></a>Issues</h2><p>Please make sure to read the <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md#issue-reporting-guidelines">Issue Reporting Checklist</a> before opening an issue. Issues not conforming to the guidelines may be closed immediately.</p>
+<h2 id="Changelog"><a href="#Changelog" class="headerlink" title="Changelog"></a>Changelog</h2><p>Detailed changes for each release are documented in the <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/releases">release notes</a>.</p>
+<h2 id="Stay-In-Touch"><a href="#Stay-In-Touch" class="headerlink" title="Stay In Touch"></a>Stay In Touch</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://twitter.com/vuejs">Twitter</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/the-vue-point">Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://vuejobs.com/?ref=vuejs">Job Board</a></li>
+</ul>
+<h2 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h2><p>Please make sure to read the <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md">Contributing Guide</a> before making a pull request. If you have a Vue-related project/component/tool, add it with a pull request to <a target="_blank" rel="noopener" href="https://github.com/vuejs/awesome-vue">this curated list</a>!</p>
+<p>Thank you to all the people who already contributed to Vue!</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/graphs/contributors"><img src="https://opencollective.com/vuejs/contributors.svg?width=890" /></a></p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p><a target="_blank" rel="noopener" href="https://opensource.org/licenses/MIT">MIT</a></p>
+<p>Copyright (c) 2013-present, Yuxi (Evan) You</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/09/12/vue/" data-id="cklm0jrei00102j95gkwo07d9" data-title="Vue" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-jquery" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/12/jquery/" class="article-date">
+  <time class="dt-published" datetime="2020-08-12T22:00:00.000Z" itemprop="datePublished">2020-08-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JQuery/">JQuery</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/12/jquery/">JQuery</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="jQuery-—-New-Wave-JavaScript"><a href="#jQuery-—-New-Wave-JavaScript" class="headerlink" title="jQuery — New Wave JavaScript"></a><a target="_blank" rel="noopener" href="https://jquery.com/">jQuery</a> — New Wave JavaScript</h1><p><a target="_blank" rel="noopener" href="https://app.fossa.io/projects/git%2Bgithub.com%2Fjquery%2Fjquery?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjquery%2Fjquery.svg?type=shield" alt="FOSSA Status"></a></p>
+<p><a target="_blank" rel="noopener" href="https://gitter.im/jquery/jquery?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/jquery/jquery.svg" alt="Gitter"></a></p>
+<h2 id="Contribution-Guides"><a href="#Contribution-Guides" class="headerlink" title="Contribution Guides"></a>Contribution Guides</h2><p>In the spirit of open source software development, jQuery always encourages community code contribution. To help you get started and before you jump into writing code, be sure to read these important contribution guidelines thoroughly:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://contribute.jquery.org/">Getting Involved</a></li>
+<li><a target="_blank" rel="noopener" href="https://contribute.jquery.org/style-guide/js/">Core Style Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://contribute.jquery.org/code/">Writing Code for jQuery Foundation Projects</a></li>
+</ol>
+<h2 id="Environments-in-which-to-use-jQuery"><a href="#Environments-in-which-to-use-jQuery" class="headerlink" title="Environments in which to use jQuery"></a>Environments in which to use jQuery</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://jquery.com/browser-support/">Browser support</a></li>
+<li>jQuery also supports Node, browser extensions, and other non-browser environments.</li>
+</ul>
+<h2 id="What-you-need-to-build-your-own-jQuery"><a href="#What-you-need-to-build-your-own-jQuery" class="headerlink" title="What you need to build your own jQuery"></a>What you need to build your own jQuery</h2><p>To build jQuery, you need to have the latest Node.js/npm and git 1.7 or later. Earlier versions might work, but are not supported.</p>
+<p>For Windows, you have to download and install <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">git</a> and <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">Node.js</a>.</p>
+<p>macOS users should install <a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew</a>. Once Homebrew is installed, run <code>brew install git</code> to install git,<br>and <code>brew install node</code> to install Node.js.</p>
+<p>Linux/BSD users should use their appropriate package managers to install git and Node.js, or build from source<br>if you swing that way. Easy-peasy.</p>
+<h2 id="How-to-build-your-own-jQuery"><a href="#How-to-build-your-own-jQuery" class="headerlink" title="How to build your own jQuery"></a>How to build your own jQuery</h2><p>First, <a target="_blank" rel="noopener" href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">clone the jQuery git repo</a>.</p>
+<p>Then, enter the jquery directory and run the build script:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> jquery &amp;&amp; npm run build</span><br></pre></td></tr></table></figure>
+<p>The built version of jQuery will be put in the <code>dist/</code> subdirectory, along with the minified copy and associated map file.</p>
+<p>If you want to create custom build or help with jQuery development, it would be better to install <a target="_blank" rel="noopener" href="https://github.com/gruntjs/grunt-cli">grunt command line interface</a> as a global package:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt-cli</span><br></pre></td></tr></table></figure>
+<p>Make sure you have <code>grunt</code> installed by testing:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt -V</span><br></pre></td></tr></table></figure>
+<p>Now by running the <code>grunt</code> command, in the jquery directory, you can build a full version of jQuery, just like with an <code>npm run build</code> command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt</span><br></pre></td></tr></table></figure>
+<p>There are many other tasks available for jQuery Core:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt -help</span><br></pre></td></tr></table></figure>
+<h3 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h3><p>Special builds can be created that exclude subsets of jQuery functionality.<br>This allows for smaller custom builds when the builder is certain that those parts of jQuery are not being used.<br>For example, an app that only used JSONP for <code>$.ajax()</code> and did not need to calculate offsets or positions of elements could exclude the offset and ajax/xhr modules.</p>
+<p>Any module may be excluded except for <code>core</code>, and <code>selector</code>. To exclude a module, pass its path relative to the <code>src</code> folder (without the <code>.js</code> extension).</p>
+<p>Some example modules that can be excluded are:</p>
+<ul>
+<li><strong>ajax</strong>: All AJAX functionality: <code>$.ajax()</code>, <code>$.get()</code>, <code>$.post()</code>, <code>$.ajaxSetup()</code>, <code>.load()</code>, transports, and ajax event shorthands such as <code>.ajaxStart()</code>.</li>
+<li><strong>ajax/xhr</strong>: The XMLHTTPRequest AJAX transport only.</li>
+<li><strong>ajax/script</strong>: The <code>&lt;script&gt;</code> AJAX transport only; used to retrieve scripts.</li>
+<li><strong>ajax/jsonp</strong>: The JSONP AJAX transport only; depends on the ajax/script transport.</li>
+<li><strong>css</strong>: The <code>.css()</code> method. Also removes <strong>all</strong> modules depending on css (including <strong>effects</strong>, <strong>dimensions</strong>, and <strong>offset</strong>).</li>
+<li><strong>css/showHide</strong>:  Non-animated <code>.show()</code>, <code>.hide()</code> and <code>.toggle()</code>; can be excluded if you use classes or explicit <code>.css()</code> calls to set the <code>display</code> property. Also removes the <strong>effects</strong> module.</li>
+<li><strong>deprecated</strong>: Methods documented as deprecated but not yet removed.</li>
+<li><strong>dimensions</strong>: The <code>.width()</code> and <code>.height()</code> methods, including <code>inner-</code> and <code>outer-</code> variations.</li>
+<li><strong>effects</strong>: The <code>.animate()</code> method and its shorthands such as <code>.slideUp()</code> or <code>.hide(&quot;slow&quot;)</code>.</li>
+<li><strong>event</strong>: The <code>.on()</code> and <code>.off()</code> methods and all event functionality.</li>
+<li><strong>event/trigger</strong>: The <code>.trigger()</code> and <code>.triggerHandler()</code> methods.</li>
+<li><strong>offset</strong>: The <code>.offset()</code>, <code>.position()</code>, <code>.offsetParent()</code>, <code>.scrollLeft()</code>, and <code>.scrollTop()</code> methods.</li>
+<li><strong>wrap</strong>: The <code>.wrap()</code>, <code>.wrapAll()</code>, <code>.wrapInner()</code>, and <code>.unwrap()</code> methods.</li>
+<li><strong>core/ready</strong>: Exclude the ready module if you place your scripts at the end of the body. Any ready callbacks bound with <code>jQuery()</code> will simply be called immediately. However, <code>jQuery(document).ready()</code> will not be a function and <code>.on(&quot;ready&quot;, ...)</code> or similar will not be triggered.</li>
+<li><strong>deferred</strong>: Exclude jQuery.Deferred. This also removes jQuery.Callbacks. <em>Note</em> that modules that depend on jQuery.Deferred(AJAX, effects, core/ready) will not be removed and will still expect jQuery.Deferred to be there. Include your own jQuery.Deferred implementation or exclude those modules as well (<code>grunt custom:-deferred,-ajax,-effects,-core/ready</code>).</li>
+<li><strong>exports/global</strong>: Exclude the attachment of global jQuery variables ($ and jQuery) to the window.</li>
+<li><strong>exports/amd</strong>: Exclude the AMD definition.</li>
+</ul>
+<p>The build process shows a message for each dependent module it excludes or includes.</p>
+<h5 id="AMD-name"><a href="#AMD-name" class="headerlink" title="AMD name"></a>AMD name</h5><p>As an option, you can set the module name for jQuery’s AMD definition. By default, it is set to “jquery”, which plays nicely with plugins and third-party libraries, but there may be cases where you’d like to change this. Simply set the <code>&quot;amd&quot;</code> option:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom --amd=<span class="string">&quot;custom-name&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Or, to define anonymously, set the name to an empty string.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom --amd=<span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Custom-Build-Examples"><a href="#Custom-Build-Examples" class="headerlink" title="Custom Build Examples"></a>Custom Build Examples</h4><p>To create a custom build, first check out the version:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull; git checkout VERSION</span><br></pre></td></tr></table></figure>
+<p>Where VERSION is the version you want to customize. Then, make sure all Node dependencies are installed:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>Create the custom build using the <code>grunt custom</code> option, listing the modules to be excluded.</p>
+<p>Exclude all <strong>ajax</strong> functionality:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom:-ajax</span><br></pre></td></tr></table></figure>
+<p>Excluding <strong>css</strong> removes modules depending on CSS: <strong>effects</strong>, <strong>offset</strong>, <strong>dimensions</strong>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom:-css</span><br></pre></td></tr></table></figure>
+<p>Exclude a bunch of modules:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom:-ajax/jsonp,-css,-deprecated,-dimensions,-effects,-offset,-wrap</span><br></pre></td></tr></table></figure>
+<p>There is also a special alias to generate a build with the same configuration as the official jQuery Slim build is generated:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom:slim</span><br></pre></td></tr></table></figure>
+<p>For questions or requests regarding custom builds, please start a thread on the <a target="_blank" rel="noopener" href="https://forum.jquery.com/developing-jquery-core">Developing jQuery Core</a> section of the forum. Due to the combinatorics and custom nature of these builds, they are not regularly tested in jQuery’s unit test process.</p>
+<h2 id="Running-the-Unit-Tests"><a href="#Running-the-Unit-Tests" class="headerlink" title="Running the Unit Tests"></a>Running the Unit Tests</h2><p>Make sure you have the necessary dependencies:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>Start <code>grunt watch</code> or <code>npm start</code> to auto-build jQuery as you work:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt watch</span><br></pre></td></tr></table></figure>
+
+<p>Run the unit tests with a local server that supports PHP. Ensure that you run the site from the root directory, not the “test” directory. No database is required. Pre-configured php local servers are available for Windows and Mac. Here are some options:</p>
+<ul>
+<li>Windows: <a target="_blank" rel="noopener" href="http://www.wampserver.com/en/">WAMP download</a></li>
+<li>Mac: <a target="_blank" rel="noopener" href="https://www.mamp.info/en/downloads/">MAMP download</a></li>
+<li>Linux: <a target="_blank" rel="noopener" href="https://www.linux.com/learn/tutorials/288158-easy-lamp-server-installation">Setting up LAMP</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.google.com/p/mongoose/">Mongoose (most platforms)</a></li>
+</ul>
+<h2 id="Building-to-a-different-directory"><a href="#Building-to-a-different-directory" class="headerlink" title="Building to a different directory"></a>Building to a different directory</h2><p>To copy the built jQuery files from <code>/dist</code> to another directory:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt &amp;&amp; grunt dist:/path/to/special/location/</span><br></pre></td></tr></table></figure>
+<p>With this example, the output files would be:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/path/to/special/location/jquery.js</span><br><span class="line">/path/to/special/location/jquery.min.js</span><br></pre></td></tr></table></figure>
+<p>To add a permanent copy destination, create a file in <code>dist/</code> called “.destination.json”. Inside the file, paste and customize the following:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;/Absolute/path/to/other/destination&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Additionally, both methods can be combined.</p>
+<h2 id="Essential-Git"><a href="#Essential-Git" class="headerlink" title="Essential Git"></a>Essential Git</h2><p>As the source code is handled by the Git version control system, it’s useful to know some features used.</p>
+<h3 id="Cleaning"><a href="#Cleaning" class="headerlink" title="Cleaning"></a>Cleaning</h3><p>If you want to purge your working directory back to the status of upstream, the following commands can be used (remember everything you’ve worked on is gone after these):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard upstream/main</span><br><span class="line">git clean -fdx</span><br></pre></td></tr></table></figure>
+<h3 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h3><p>For feature/topic branches, you should always use the <code>--rebase</code> flag to <code>git pull</code>, or if you are usually handling many temporary “to be in a github pull request” branches, run the following to automate this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config branch.autosetuprebase <span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+<p>(see <code>man git-config</code> for more information)</p>
+<h3 id="Handling-merge-conflicts"><a href="#Handling-merge-conflicts" class="headerlink" title="Handling merge conflicts"></a>Handling merge conflicts</h3><p>If you’re getting merge conflicts when merging, instead of editing the conflicted files manually, you can use the feature<br><code>git mergetool</code>. Even though the default tool <code>xxdiff</code> looks awful/old, it’s rather useful.</p>
+<p>The following are some commands that can be used there:</p>
+<ul>
+<li><code>Ctrl + Alt + M</code> - automerge as much as possible</li>
+<li><code>b</code> - jump to next merge conflict</li>
+<li><code>s</code> - change the order of the conflicted lines</li>
+<li><code>u</code> - undo a merge</li>
+<li><code>left mouse button</code> - mark a block to be the winner</li>
+<li><code>middle mouse button</code> - mark a line to be the winner</li>
+<li><code>Ctrl + S</code> - save</li>
+<li><code>Ctrl + Q</code> - quit</li>
+</ul>
+<h2 id="QUnit-Reference"><a href="#QUnit-Reference" class="headerlink" title="QUnit Reference"></a><a target="_blank" rel="noopener" href="https://api.qunitjs.com/">QUnit</a> Reference</h2><h3 id="Test-methods"><a href="#Test-methods" class="headerlink" title="Test methods"></a>Test methods</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">expect( numAssertions );</span><br><span class="line">stop();</span><br><span class="line">start();</span><br></pre></td></tr></table></figure>
+
+<p><em>Note</em>: QUnit’s eventual addition of an argument to stop/start is ignored in this test suite so that start and stop can be passed as callbacks without worrying about their parameters.</p>
+<h3 id="Test-assertions"><a href="#Test-assertions" class="headerlink" title="Test assertions"></a>Test assertions</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ok( value, [message] );</span><br><span class="line">equal( actual, expected, [message] );</span><br><span class="line">notEqual( actual, expected, [message] );</span><br><span class="line">deepEqual( actual, expected, [message] );</span><br><span class="line">notDeepEqual( actual, expected, [message] );</span><br><span class="line">strictEqual( actual, expected, [message] );</span><br><span class="line">notStrictEqual( actual, expected, [message] );</span><br><span class="line">throws( block, [expected], [message] );</span><br></pre></td></tr></table></figure>
+
+<h2 id="Test-Suite-Convenience-Methods-Reference-See-test-data-testinit-js"><a href="#Test-Suite-Convenience-Methods-Reference-See-test-data-testinit-js" class="headerlink" title="Test Suite Convenience Methods Reference (See test/data/testinit.js)"></a>Test Suite Convenience Methods Reference (See <a target="_blank" rel="noopener" href="https://github.com/jquery/jquery/blob/main/test/data/testinit.js">test/data/testinit.js</a>)</h2><h3 id="Returns-an-array-of-elements-with-the-given-IDs"><a href="#Returns-an-array-of-elements-with-the-given-IDs" class="headerlink" title="Returns an array of elements with the given IDs"></a>Returns an array of elements with the given IDs</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q( ... );</span><br></pre></td></tr></table></figure>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">q(<span class="string">&quot;main&quot;</span>, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>);</span><br><span class="line"></span><br><span class="line">=&gt; [ div#main, span#foo, input#bar ]</span><br></pre></td></tr></table></figure>
+<h3 id="Asserts-that-a-selection-matches-the-given-IDs"><a href="#Asserts-that-a-selection-matches-the-given-IDs" class="headerlink" title="Asserts that a selection matches the given IDs"></a>Asserts that a selection matches the given IDs</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t( testName, selector, [ <span class="string">&quot;array&quot;</span>, <span class="string">&quot;of&quot;</span>, <span class="string">&quot;ids&quot;</span> ] );</span><br></pre></td></tr></table></figure>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t(<span class="string">&quot;Check for something&quot;</span>, <span class="string">&quot;//[a]&quot;</span>, [<span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>]);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Fires-a-native-DOM-event-without-going-through-jQuery"><a href="#Fires-a-native-DOM-event-without-going-through-jQuery" class="headerlink" title="Fires a native DOM event without going through jQuery"></a>Fires a native DOM event without going through jQuery</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fireNative( node, eventType )</span><br></pre></td></tr></table></figure>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fireNative( jQuery(<span class="string">&quot;#elem&quot;</span>)[<span class="number">0</span>], <span class="string">&quot;click&quot;</span> );</span><br></pre></td></tr></table></figure>
+<h3 id="Add-random-number-to-url-to-stop-caching"><a href="#Add-random-number-to-url-to-stop-caching" class="headerlink" title="Add random number to url to stop caching"></a>Add random number to url to stop caching</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url( <span class="string">&quot;some/url&quot;</span> );</span><br></pre></td></tr></table></figure>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">url(<span class="string">&quot;index.html&quot;</span>);</span><br><span class="line"></span><br><span class="line">=&gt; <span class="string">&quot;data/index.html?10538358428943&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url(<span class="string">&quot;mock.php?foo=bar&quot;</span>);</span><br><span class="line"></span><br><span class="line">=&gt; <span class="string">&quot;data/mock.php?foo=bar&amp;10538358345554&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Run-tests-in-an-iframe"><a href="#Run-tests-in-an-iframe" class="headerlink" title="Run tests in an iframe"></a>Run tests in an iframe</h3><p>Some tests may require a document other than the standard test fixture, and<br>these can be run in a separate iframe. The actual test code and assertions<br>remain in jQuery’s main test files; only the minimal test fixture markup<br>and setup code should be placed in the iframe file.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">testIframe( testName, fileName,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">testCallback</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">      assert, jQuery, <span class="built_in">window</span>, <span class="built_in">document</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      [ additional args ] </span>) </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125; );</span><br></pre></td></tr></table></figure>
+<p>This loads a page, constructing a url with fileName <code>&quot;./data/&quot; + fileName</code>.<br>The iframed page determines when the callback occurs in the test by<br>including the “/test/data/iframeTest.js” script and calling<br><code>startIframeTest( [ additional args ] )</code> when appropriate. Often this<br>will be after either document ready or <code>window.onload</code> fires.</p>
+<p>The <code>testCallback</code> receives the QUnit <code>assert</code> object created by <code>testIframe</code><br>for this test, followed by the global <code>jQuery</code>, <code>window</code>, and <code>document</code> from<br>the iframe. If the iframe code passes any arguments to <code>startIframeTest</code>,<br>they follow the <code>document</code> argument.</p>
+<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions?"></a>Questions?</h2><p>If you have any questions, please feel free to ask on the<br><a target="_blank" rel="noopener" href="https://forum.jquery.com/developing-jquery-core">Developing jQuery Core forum</a> or in #jquery on irc.freenode.net.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/12/jquery/" data-id="cklm0jrdw00012j95clu1djw4" data-title="JQuery" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-composer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/07/12/composer/" class="article-date">
+  <time class="dt-published" datetime="2020-07-12T22:00:00.000Z" itemprop="datePublished">2020-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Composer/">Composer</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/07/12/composer/">Composer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Composer-Dependency-Management-for-PHP"><a href="#Composer-Dependency-Management-for-PHP" class="headerlink" title="Composer - Dependency Management for PHP"></a>Composer - Dependency Management for PHP</h1><p>Composer helps you declare, manage, and install dependencies of PHP projects.</p>
+<p>See <a target="_blank" rel="noopener" href="https://getcomposer.org/">https://getcomposer.org/</a> for more information and documentation.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/composer/composer/actions"><img src="https://github.com/composer/composer/workflows/Continuous%20Integration/badge.svg?branch=master" alt="Continuous Integration"></a></p>
+<h2 id="Installation-Usage"><a href="#Installation-Usage" class="headerlink" title="Installation / Usage"></a>Installation / Usage</h2><p>Download and install Composer by following the <a target="_blank" rel="noopener" href="https://getcomposer.org/download/">official instructions</a>.</p>
+<p>For usage, see <a target="_blank" rel="noopener" href="https://getcomposer.org/doc/">the documentation</a>.</p>
+<h2 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h2><p>Find packages on <a target="_blank" rel="noopener" href="https://packagist.org/">Packagist</a>.</p>
+<h2 id="Community"><a href="#Community" class="headerlink" title="Community"></a>Community</h2><p>IRC channels are on irc.freenode.org: <a href="irc://irc.freenode.org/composer">#composer</a><br>for users and <a href="irc://irc.freenode.org/composer-dev">#composer-dev</a> for development.</p>
+<p>For support, Stack Overflow also offers a good collection of<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/tagged/composer-php">Composer related questions</a>.</p>
+<p>Please note that this project is released with a<br><a target="_blank" rel="noopener" href="https://www.contributor-covenant.org/version/1/4/code-of-conduct/">Contributor Code of Conduct</a>.<br>By participating in this project and its community you agree to abide by those terms.</p>
+<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><p>PHP 5.3.2 or above (at least 5.3.4 recommended to avoid potential bugs)</p>
+<h2 id="Authors"><a href="#Authors" class="headerlink" title="Authors"></a>Authors</h2><ul>
+<li>Nils Adermann  | <a target="_blank" rel="noopener" href="https://github.com/naderman">GitHub</a>  | <a target="_blank" rel="noopener" href="https://twitter.com/naderman">Twitter</a> | <a href="mailto:&#x6e;&#x61;&#100;&#x65;&#x72;&#109;&#97;&#110;&#64;&#110;&#x61;&#x64;&#x65;&#x72;&#x6d;&#97;&#110;&#46;&#100;&#x65;">&#x6e;&#x61;&#100;&#x65;&#x72;&#109;&#97;&#110;&#64;&#110;&#x61;&#x64;&#x65;&#x72;&#x6d;&#97;&#110;&#46;&#100;&#x65;</a> | <a target="_blank" rel="noopener" href="https://naderman.de/">naderman.de</a></li>
+<li>Jordi Boggiano | <a target="_blank" rel="noopener" href="https://github.com/Seldaek">GitHub</a> | <a target="_blank" rel="noopener" href="https://twitter.com/seldaek">Twitter</a> | <a href="mailto:&#106;&#x2e;&#x62;&#x6f;&#103;&#x67;&#x69;&#x61;&#x6e;&#111;&#64;&#115;&#x65;&#x6c;&#x64;&#x2e;&#x62;&#101;">&#106;&#x2e;&#x62;&#x6f;&#103;&#x67;&#x69;&#x61;&#x6e;&#111;&#64;&#115;&#x65;&#x6c;&#x64;&#x2e;&#x62;&#101;</a> | <a target="_blank" rel="noopener" href="https://seld.be/">seld.be</a></li>
+</ul>
+<p>See also the list of <a target="_blank" rel="noopener" href="https://github.com/composer/composer/contributors">contributors</a> who participated in this project.</p>
+<h2 id="Security-Reports"><a href="#Security-Reports" class="headerlink" title="Security Reports"></a>Security Reports</h2><p>Please send any sensitive issue to <a href="mailto:security@packagist.org">security@packagist.org</a>. Thanks!</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>Composer is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+<h2 id="Acknowledgments"><a href="#Acknowledgments" class="headerlink" title="Acknowledgments"></a>Acknowledgments</h2><ul>
+<li>This project’s Solver started out as a PHP port of openSUSE’s<br><a target="_blank" rel="noopener" href="https://en.opensuse.org/openSUSE:Libzypp_satsolver">Libzypp satsolver</a>.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/07/12/composer/" data-id="cklm0jrdr00002j95g4jf6m4v" data-title="Composer" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/composer/" rel="tag">composer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 </section>
         <aside id="sidebar">
@@ -157,7 +1355,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/" rel="tag">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Welcome/" rel="tag">Welcome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/World/" rel="tag">World</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/" rel="tag">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Welcome/" rel="tag">Welcome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/World/" rel="tag">World</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yii2/" rel="tag">yii2</a></li></ul>
     </div>
   </div>
 
@@ -177,6 +1375,18 @@
             <a href="/2021/02/20/hello-world/">Hello World</a>
           </li>
         
+          <li>
+            <a href="/2021/02/12/kubernetes/">Kubernetes (K8s)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/12/redis/">Redis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/laravel/">Laravel</a>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -186,7 +1396,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JQuery/">JQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kubernetes/">Kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Laravel/">Laravel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Yii2/">Yii2</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a></li></ul>
     </div>
   </div>
 
@@ -196,7 +1406,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
     </div>
   </div>
 

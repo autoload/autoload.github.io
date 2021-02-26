@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JQuery | Auto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Auto</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">A modern stylish theme for Hexo</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-jquery" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/12/jquery/" class="article-date">
+  <time class="dt-published" datetime="2020-08-12T22:00:00.000Z" itemprop="datePublished">2020-08-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JQuery/">JQuery</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      JQuery
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="jQuery-—-New-Wave-JavaScript"><a href="#jQuery-—-New-Wave-JavaScript" class="headerlink" title="jQuery — New Wave JavaScript"></a><a target="_blank" rel="noopener" href="https://jquery.com/">jQuery</a> — New Wave JavaScript</h1><p><a target="_blank" rel="noopener" href="https://app.fossa.io/projects/git%2Bgithub.com%2Fjquery%2Fjquery?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjquery%2Fjquery.svg?type=shield" alt="FOSSA Status"></a></p>
+<p><a target="_blank" rel="noopener" href="https://gitter.im/jquery/jquery?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/jquery/jquery.svg" alt="Gitter"></a></p>
+<h2 id="Contribution-Guides"><a href="#Contribution-Guides" class="headerlink" title="Contribution Guides"></a>Contribution Guides</h2><p>In the spirit of open source software development, jQuery always encourages community code contribution. To help you get started and before you jump into writing code, be sure to read these important contribution guidelines thoroughly:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://contribute.jquery.org/">Getting Involved</a></li>
+<li><a target="_blank" rel="noopener" href="https://contribute.jquery.org/style-guide/js/">Core Style Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://contribute.jquery.org/code/">Writing Code for jQuery Foundation Projects</a></li>
+</ol>
+<h2 id="Environments-in-which-to-use-jQuery"><a href="#Environments-in-which-to-use-jQuery" class="headerlink" title="Environments in which to use jQuery"></a>Environments in which to use jQuery</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://jquery.com/browser-support/">Browser support</a></li>
+<li>jQuery also supports Node, browser extensions, and other non-browser environments.</li>
+</ul>
+<h2 id="What-you-need-to-build-your-own-jQuery"><a href="#What-you-need-to-build-your-own-jQuery" class="headerlink" title="What you need to build your own jQuery"></a>What you need to build your own jQuery</h2><p>To build jQuery, you need to have the latest Node.js/npm and git 1.7 or later. Earlier versions might work, but are not supported.</p>
+<p>For Windows, you have to download and install <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">git</a> and <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">Node.js</a>.</p>
+<p>macOS users should install <a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew</a>. Once Homebrew is installed, run <code>brew install git</code> to install git,<br>and <code>brew install node</code> to install Node.js.</p>
+<p>Linux/BSD users should use their appropriate package managers to install git and Node.js, or build from source<br>if you swing that way. Easy-peasy.</p>
+<h2 id="How-to-build-your-own-jQuery"><a href="#How-to-build-your-own-jQuery" class="headerlink" title="How to build your own jQuery"></a>How to build your own jQuery</h2><p>First, <a target="_blank" rel="noopener" href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">clone the jQuery git repo</a>.</p>
+<p>Then, enter the jquery directory and run the build script:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> jquery &amp;&amp; npm run build</span><br></pre></td></tr></table></figure>
+<p>The built version of jQuery will be put in the <code>dist/</code> subdirectory, along with the minified copy and associated map file.</p>
+<p>If you want to create custom build or help with jQuery development, it would be better to install <a target="_blank" rel="noopener" href="https://github.com/gruntjs/grunt-cli">grunt command line interface</a> as a global package:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt-cli</span><br></pre></td></tr></table></figure>
+<p>Make sure you have <code>grunt</code> installed by testing:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt -V</span><br></pre></td></tr></table></figure>
+<p>Now by running the <code>grunt</code> command, in the jquery directory, you can build a full version of jQuery, just like with an <code>npm run build</code> command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt</span><br></pre></td></tr></table></figure>
+<p>There are many other tasks available for jQuery Core:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt -help</span><br></pre></td></tr></table></figure>
+<h3 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h3><p>Special builds can be created that exclude subsets of jQuery functionality.<br>This allows for smaller custom builds when the builder is certain that those parts of jQuery are not being used.<br>For example, an app that only used JSONP for <code>$.ajax()</code> and did not need to calculate offsets or positions of elements could exclude the offset and ajax/xhr modules.</p>
+<p>Any module may be excluded except for <code>core</code>, and <code>selector</code>. To exclude a module, pass its path relative to the <code>src</code> folder (without the <code>.js</code> extension).</p>
+<p>Some example modules that can be excluded are:</p>
+<ul>
+<li><strong>ajax</strong>: All AJAX functionality: <code>$.ajax()</code>, <code>$.get()</code>, <code>$.post()</code>, <code>$.ajaxSetup()</code>, <code>.load()</code>, transports, and ajax event shorthands such as <code>.ajaxStart()</code>.</li>
+<li><strong>ajax/xhr</strong>: The XMLHTTPRequest AJAX transport only.</li>
+<li><strong>ajax/script</strong>: The <code>&lt;script&gt;</code> AJAX transport only; used to retrieve scripts.</li>
+<li><strong>ajax/jsonp</strong>: The JSONP AJAX transport only; depends on the ajax/script transport.</li>
+<li><strong>css</strong>: The <code>.css()</code> method. Also removes <strong>all</strong> modules depending on css (including <strong>effects</strong>, <strong>dimensions</strong>, and <strong>offset</strong>).</li>
+<li><strong>css/showHide</strong>:  Non-animated <code>.show()</code>, <code>.hide()</code> and <code>.toggle()</code>; can be excluded if you use classes or explicit <code>.css()</code> calls to set the <code>display</code> property. Also removes the <strong>effects</strong> module.</li>
+<li><strong>deprecated</strong>: Methods documented as deprecated but not yet removed.</li>
+<li><strong>dimensions</strong>: The <code>.width()</code> and <code>.height()</code> methods, including <code>inner-</code> and <code>outer-</code> variations.</li>
+<li><strong>effects</strong>: The <code>.animate()</code> method and its shorthands such as <code>.slideUp()</code> or <code>.hide(&quot;slow&quot;)</code>.</li>
+<li><strong>event</strong>: The <code>.on()</code> and <code>.off()</code> methods and all event functionality.</li>
+<li><strong>event/trigger</strong>: The <code>.trigger()</code> and <code>.triggerHandler()</code> methods.</li>
+<li><strong>offset</strong>: The <code>.offset()</code>, <code>.position()</code>, <code>.offsetParent()</code>, <code>.scrollLeft()</code>, and <code>.scrollTop()</code> methods.</li>
+<li><strong>wrap</strong>: The <code>.wrap()</code>, <code>.wrapAll()</code>, <code>.wrapInner()</code>, and <code>.unwrap()</code> methods.</li>
+<li><strong>core/ready</strong>: Exclude the ready module if you place your scripts at the end of the body. Any ready callbacks bound with <code>jQuery()</code> will simply be called immediately. However, <code>jQuery(document).ready()</code> will not be a function and <code>.on(&quot;ready&quot;, ...)</code> or similar will not be triggered.</li>
+<li><strong>deferred</strong>: Exclude jQuery.Deferred. This also removes jQuery.Callbacks. <em>Note</em> that modules that depend on jQuery.Deferred(AJAX, effects, core/ready) will not be removed and will still expect jQuery.Deferred to be there. Include your own jQuery.Deferred implementation or exclude those modules as well (<code>grunt custom:-deferred,-ajax,-effects,-core/ready</code>).</li>
+<li><strong>exports/global</strong>: Exclude the attachment of global jQuery variables ($ and jQuery) to the window.</li>
+<li><strong>exports/amd</strong>: Exclude the AMD definition.</li>
+</ul>
+<p>The build process shows a message for each dependent module it excludes or includes.</p>
+<h5 id="AMD-name"><a href="#AMD-name" class="headerlink" title="AMD name"></a>AMD name</h5><p>As an option, you can set the module name for jQuery’s AMD definition. By default, it is set to “jquery”, which plays nicely with plugins and third-party libraries, but there may be cases where you’d like to change this. Simply set the <code>&quot;amd&quot;</code> option:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom --amd=<span class="string">&quot;custom-name&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Or, to define anonymously, set the name to an empty string.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom --amd=<span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Custom-Build-Examples"><a href="#Custom-Build-Examples" class="headerlink" title="Custom Build Examples"></a>Custom Build Examples</h4><p>To create a custom build, first check out the version:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull; git checkout VERSION</span><br></pre></td></tr></table></figure>
+<p>Where VERSION is the version you want to customize. Then, make sure all Node dependencies are installed:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>Create the custom build using the <code>grunt custom</code> option, listing the modules to be excluded.</p>
+<p>Exclude all <strong>ajax</strong> functionality:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom:-ajax</span><br></pre></td></tr></table></figure>
+<p>Excluding <strong>css</strong> removes modules depending on CSS: <strong>effects</strong>, <strong>offset</strong>, <strong>dimensions</strong>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom:-css</span><br></pre></td></tr></table></figure>
+<p>Exclude a bunch of modules:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom:-ajax/jsonp,-css,-deprecated,-dimensions,-effects,-offset,-wrap</span><br></pre></td></tr></table></figure>
+<p>There is also a special alias to generate a build with the same configuration as the official jQuery Slim build is generated:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt custom:slim</span><br></pre></td></tr></table></figure>
+<p>For questions or requests regarding custom builds, please start a thread on the <a target="_blank" rel="noopener" href="https://forum.jquery.com/developing-jquery-core">Developing jQuery Core</a> section of the forum. Due to the combinatorics and custom nature of these builds, they are not regularly tested in jQuery’s unit test process.</p>
+<h2 id="Running-the-Unit-Tests"><a href="#Running-the-Unit-Tests" class="headerlink" title="Running the Unit Tests"></a>Running the Unit Tests</h2><p>Make sure you have the necessary dependencies:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>Start <code>grunt watch</code> or <code>npm start</code> to auto-build jQuery as you work:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt watch</span><br></pre></td></tr></table></figure>
+
+<p>Run the unit tests with a local server that supports PHP. Ensure that you run the site from the root directory, not the “test” directory. No database is required. Pre-configured php local servers are available for Windows and Mac. Here are some options:</p>
+<ul>
+<li>Windows: <a target="_blank" rel="noopener" href="http://www.wampserver.com/en/">WAMP download</a></li>
+<li>Mac: <a target="_blank" rel="noopener" href="https://www.mamp.info/en/downloads/">MAMP download</a></li>
+<li>Linux: <a target="_blank" rel="noopener" href="https://www.linux.com/learn/tutorials/288158-easy-lamp-server-installation">Setting up LAMP</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.google.com/p/mongoose/">Mongoose (most platforms)</a></li>
+</ul>
+<h2 id="Building-to-a-different-directory"><a href="#Building-to-a-different-directory" class="headerlink" title="Building to a different directory"></a>Building to a different directory</h2><p>To copy the built jQuery files from <code>/dist</code> to another directory:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grunt &amp;&amp; grunt dist:/path/to/special/location/</span><br></pre></td></tr></table></figure>
+<p>With this example, the output files would be:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/path/to/special/location/jquery.js</span><br><span class="line">/path/to/special/location/jquery.min.js</span><br></pre></td></tr></table></figure>
+<p>To add a permanent copy destination, create a file in <code>dist/</code> called “.destination.json”. Inside the file, paste and customize the following:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;/Absolute/path/to/other/destination&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Additionally, both methods can be combined.</p>
+<h2 id="Essential-Git"><a href="#Essential-Git" class="headerlink" title="Essential Git"></a>Essential Git</h2><p>As the source code is handled by the Git version control system, it’s useful to know some features used.</p>
+<h3 id="Cleaning"><a href="#Cleaning" class="headerlink" title="Cleaning"></a>Cleaning</h3><p>If you want to purge your working directory back to the status of upstream, the following commands can be used (remember everything you’ve worked on is gone after these):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard upstream/main</span><br><span class="line">git clean -fdx</span><br></pre></td></tr></table></figure>
+<h3 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h3><p>For feature/topic branches, you should always use the <code>--rebase</code> flag to <code>git pull</code>, or if you are usually handling many temporary “to be in a github pull request” branches, run the following to automate this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config branch.autosetuprebase <span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+<p>(see <code>man git-config</code> for more information)</p>
+<h3 id="Handling-merge-conflicts"><a href="#Handling-merge-conflicts" class="headerlink" title="Handling merge conflicts"></a>Handling merge conflicts</h3><p>If you’re getting merge conflicts when merging, instead of editing the conflicted files manually, you can use the feature<br><code>git mergetool</code>. Even though the default tool <code>xxdiff</code> looks awful/old, it’s rather useful.</p>
+<p>The following are some commands that can be used there:</p>
+<ul>
+<li><code>Ctrl + Alt + M</code> - automerge as much as possible</li>
+<li><code>b</code> - jump to next merge conflict</li>
+<li><code>s</code> - change the order of the conflicted lines</li>
+<li><code>u</code> - undo a merge</li>
+<li><code>left mouse button</code> - mark a block to be the winner</li>
+<li><code>middle mouse button</code> - mark a line to be the winner</li>
+<li><code>Ctrl + S</code> - save</li>
+<li><code>Ctrl + Q</code> - quit</li>
+</ul>
+<h2 id="QUnit-Reference"><a href="#QUnit-Reference" class="headerlink" title="QUnit Reference"></a><a target="_blank" rel="noopener" href="https://api.qunitjs.com/">QUnit</a> Reference</h2><h3 id="Test-methods"><a href="#Test-methods" class="headerlink" title="Test methods"></a>Test methods</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">expect( numAssertions );</span><br><span class="line">stop();</span><br><span class="line">start();</span><br></pre></td></tr></table></figure>
+
+<p><em>Note</em>: QUnit’s eventual addition of an argument to stop/start is ignored in this test suite so that start and stop can be passed as callbacks without worrying about their parameters.</p>
+<h3 id="Test-assertions"><a href="#Test-assertions" class="headerlink" title="Test assertions"></a>Test assertions</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ok( value, [message] );</span><br><span class="line">equal( actual, expected, [message] );</span><br><span class="line">notEqual( actual, expected, [message] );</span><br><span class="line">deepEqual( actual, expected, [message] );</span><br><span class="line">notDeepEqual( actual, expected, [message] );</span><br><span class="line">strictEqual( actual, expected, [message] );</span><br><span class="line">notStrictEqual( actual, expected, [message] );</span><br><span class="line">throws( block, [expected], [message] );</span><br></pre></td></tr></table></figure>
+
+<h2 id="Test-Suite-Convenience-Methods-Reference-See-test-data-testinit-js"><a href="#Test-Suite-Convenience-Methods-Reference-See-test-data-testinit-js" class="headerlink" title="Test Suite Convenience Methods Reference (See test/data/testinit.js)"></a>Test Suite Convenience Methods Reference (See <a target="_blank" rel="noopener" href="https://github.com/jquery/jquery/blob/main/test/data/testinit.js">test/data/testinit.js</a>)</h2><h3 id="Returns-an-array-of-elements-with-the-given-IDs"><a href="#Returns-an-array-of-elements-with-the-given-IDs" class="headerlink" title="Returns an array of elements with the given IDs"></a>Returns an array of elements with the given IDs</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q( ... );</span><br></pre></td></tr></table></figure>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">q(<span class="string">&quot;main&quot;</span>, <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>);</span><br><span class="line"></span><br><span class="line">=&gt; [ div#main, span#foo, input#bar ]</span><br></pre></td></tr></table></figure>
+<h3 id="Asserts-that-a-selection-matches-the-given-IDs"><a href="#Asserts-that-a-selection-matches-the-given-IDs" class="headerlink" title="Asserts that a selection matches the given IDs"></a>Asserts that a selection matches the given IDs</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t( testName, selector, [ <span class="string">&quot;array&quot;</span>, <span class="string">&quot;of&quot;</span>, <span class="string">&quot;ids&quot;</span> ] );</span><br></pre></td></tr></table></figure>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t(<span class="string">&quot;Check for something&quot;</span>, <span class="string">&quot;//[a]&quot;</span>, [<span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>]);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Fires-a-native-DOM-event-without-going-through-jQuery"><a href="#Fires-a-native-DOM-event-without-going-through-jQuery" class="headerlink" title="Fires a native DOM event without going through jQuery"></a>Fires a native DOM event without going through jQuery</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fireNative( node, eventType )</span><br></pre></td></tr></table></figure>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fireNative( jQuery(<span class="string">&quot;#elem&quot;</span>)[<span class="number">0</span>], <span class="string">&quot;click&quot;</span> );</span><br></pre></td></tr></table></figure>
+<h3 id="Add-random-number-to-url-to-stop-caching"><a href="#Add-random-number-to-url-to-stop-caching" class="headerlink" title="Add random number to url to stop caching"></a>Add random number to url to stop caching</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url( <span class="string">&quot;some/url&quot;</span> );</span><br></pre></td></tr></table></figure>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">url(<span class="string">&quot;index.html&quot;</span>);</span><br><span class="line"></span><br><span class="line">=&gt; <span class="string">&quot;data/index.html?10538358428943&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url(<span class="string">&quot;mock.php?foo=bar&quot;</span>);</span><br><span class="line"></span><br><span class="line">=&gt; <span class="string">&quot;data/mock.php?foo=bar&amp;10538358345554&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Run-tests-in-an-iframe"><a href="#Run-tests-in-an-iframe" class="headerlink" title="Run tests in an iframe"></a>Run tests in an iframe</h3><p>Some tests may require a document other than the standard test fixture, and<br>these can be run in a separate iframe. The actual test code and assertions<br>remain in jQuery’s main test files; only the minimal test fixture markup<br>and setup code should be placed in the iframe file.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">testIframe( testName, fileName,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">testCallback</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">      assert, jQuery, <span class="built_in">window</span>, <span class="built_in">document</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      [ additional args ] </span>) </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125; );</span><br></pre></td></tr></table></figure>
+<p>This loads a page, constructing a url with fileName <code>&quot;./data/&quot; + fileName</code>.<br>The iframed page determines when the callback occurs in the test by<br>including the “/test/data/iframeTest.js” script and calling<br><code>startIframeTest( [ additional args ] )</code> when appropriate. Often this<br>will be after either document ready or <code>window.onload</code> fires.</p>
+<p>The <code>testCallback</code> receives the QUnit <code>assert</code> object created by <code>testIframe</code><br>for this test, followed by the global <code>jQuery</code>, <code>window</code>, and <code>document</code> from<br>the iframe. If the iframe code passes any arguments to <code>startIframeTest</code>,<br>they follow the <code>document</code> argument.</p>
+<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions?"></a>Questions?</h2><p>If you have any questions, please feel free to ask on the<br><a target="_blank" rel="noopener" href="https://forum.jquery.com/developing-jquery-core">Developing jQuery Core forum</a> or in #jquery on irc.freenode.net.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/12/jquery/" data-id="cklm0jrdw00012j95clu1djw4" data-title="JQuery" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/09/12/vue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vue
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/12/composer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Composer</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/" rel="tag">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Welcome/" rel="tag">Welcome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/World/" rel="tag">World</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yii2/" rel="tag">yii2</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/24/test-news/">Test News</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/20/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/12/kubernetes/">Kubernetes (K8s)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/12/redis/">Redis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/laravel/">Laravel</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JQuery/">JQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kubernetes/">Kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Laravel/">Laravel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Yii2/">Yii2</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 By Autoload<br>
+      Driven - <a href="https://hexo.io/" target="_blank">Hexo</a>|Theme - <a href="https://github.com/autoload/hexo-theme-auto" target="_blank">Auto</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

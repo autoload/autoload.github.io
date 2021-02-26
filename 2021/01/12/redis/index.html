@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Redis | Auto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Auto</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">A modern stylish theme for Hexo</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-redis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/12/redis/" class="article-date">
+  <time class="dt-published" datetime="2021-01-12T23:00:00.000Z" itemprop="datePublished">2021-01-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redis/">Redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Redis
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This README is just a fast <em>quick start</em> document. You can find more detailed documentation at <a target="_blank" rel="noopener" href="https://redis.io/">redis.io</a>.</p>
+<h2 id="What-is-Redis"><a href="#What-is-Redis" class="headerlink" title="What is Redis?"></a>What is Redis?</h2><p>Redis is often referred to as a <em>data structures</em> server. What this means is that Redis provides access to mutable data structures via a set of commands, which are sent using a <em>server-client</em> model with TCP sockets and a simple protocol. So different processes can query and modify the same data structures in a shared way.</p>
+<p>Data structures implemented into Redis have a few special properties:</p>
+<ul>
+<li>Redis cares to store them on disk, even if they are always served and modified into the server memory. This means that Redis is fast, but that it is also non-volatile.</li>
+<li>The implementation of data structures emphasizes memory efficiency, so data structures inside Redis will likely use less memory compared to the same data structure modelled using a high-level programming language.</li>
+<li>Redis offers a number of features that are natural to find in a database, like replication, tunable levels of durability, clustering, and high availability.</li>
+</ul>
+<p>Another good example is to think of Redis as a more complex version of memcached, where the operations are not just SETs and GETs, but operations that work with complex data types like Lists, Sets, ordered data structures, and so forth.</p>
+<p>If you want to know more, this is a list of selected starting points:</p>
+<ul>
+<li>Introduction to Redis data types. <a target="_blank" rel="noopener" href="http://redis.io/topics/data-types-intro">http://redis.io/topics/data-types-intro</a></li>
+<li>Try Redis directly inside your browser. <a target="_blank" rel="noopener" href="http://try.redis.io/">http://try.redis.io</a></li>
+<li>The full list of Redis commands. <a target="_blank" rel="noopener" href="http://redis.io/commands">http://redis.io/commands</a></li>
+<li>There is much more inside the official Redis documentation. <a target="_blank" rel="noopener" href="http://redis.io/documentation">http://redis.io/documentation</a></li>
+</ul>
+<h2 id="Building-Redis"><a href="#Building-Redis" class="headerlink" title="Building Redis"></a>Building Redis</h2><p>Redis can be compiled and used on Linux, OSX, OpenBSD, NetBSD, FreeBSD.<br>We support big endian and little endian architectures, and both 32 bit<br>and 64 bit systems.</p>
+<p>It may compile on Solaris derived systems (for instance SmartOS) but our<br>support for this platform is <em>best effort</em> and Redis is not guaranteed to<br>work as well as in Linux, OSX, and *BSD.</p>
+<p>It is as simple as:</p>
+<pre><code>% make
+</code></pre>
+<p>To build with TLS support, you’ll need OpenSSL development libraries (e.g.<br>libssl-dev on Debian/Ubuntu) and run:</p>
+<pre><code>% make BUILD_TLS=yes
+</code></pre>
+<p>To build with systemd support, you’ll need systemd development libraries (such<br>as libsystemd-dev on Debian/Ubuntu or systemd-devel on CentOS) and run:</p>
+<pre><code>% make USE_SYSTEMD=yes
+</code></pre>
+<p>To append a suffix to Redis program names, use:</p>
+<pre><code>% make PROG_SUFFIX=&quot;-alt&quot;
+</code></pre>
+<p>You can run a 32 bit Redis binary using:</p>
+<pre><code>% make 32bit
+</code></pre>
+<p>After building Redis, it is a good idea to test it using:</p>
+<pre><code>% make test
+</code></pre>
+<p>If TLS is built, running the tests with TLS enabled (you will need <code>tcl-tls</code><br>installed):</p>
+<pre><code>% ./utils/gen-test-certs.sh
+% ./runtest --tls
+</code></pre>
+<h2 id="Fixing-build-problems-with-dependencies-or-cached-build-options"><a href="#Fixing-build-problems-with-dependencies-or-cached-build-options" class="headerlink" title="Fixing build problems with dependencies or cached build options"></a>Fixing build problems with dependencies or cached build options</h2><p>Redis has some dependencies which are included in the <code>deps</code> directory.<br><code>make</code> does not automatically rebuild dependencies even if something in<br>the source code of dependencies changes.</p>
+<p>When you update the source code with <code>git pull</code> or when code inside the<br>dependencies tree is modified in any other way, make sure to use the following<br>command in order to really clean everything and rebuild from scratch:</p>
+<pre><code>make distclean
+</code></pre>
+<p>This will clean: jemalloc, lua, hiredis, linenoise.</p>
+<p>Also if you force certain build options like 32bit target, no C compiler<br>optimizations (for debugging purposes), and other similar build time options,<br>those options are cached indefinitely until you issue a <code>make distclean</code><br>command.</p>
+<h2 id="Fixing-problems-building-32-bit-binaries"><a href="#Fixing-problems-building-32-bit-binaries" class="headerlink" title="Fixing problems building 32 bit binaries"></a>Fixing problems building 32 bit binaries</h2><p>If after building Redis with a 32 bit target you need to rebuild it<br>with a 64 bit target, or the other way around, you need to perform a<br><code>make distclean</code> in the root directory of the Redis distribution.</p>
+<p>In case of build errors when trying to build a 32 bit binary of Redis, try<br>the following steps:</p>
+<ul>
+<li>Install the package libc6-dev-i386 (also try g++-multilib).</li>
+<li>Try using the following command line instead of <code>make 32bit</code>:<br><code>make CFLAGS=&quot;-m32 -march=native&quot; LDFLAGS=&quot;-m32&quot;</code></li>
+</ul>
+<h2 id="Allocator"><a href="#Allocator" class="headerlink" title="Allocator"></a>Allocator</h2><p>Selecting a non-default memory allocator when building Redis is done by setting<br>the <code>MALLOC</code> environment variable. Redis is compiled and linked against libc<br>malloc by default, with the exception of jemalloc being the default on Linux<br>systems. This default was picked because jemalloc has proven to have fewer<br>fragmentation problems than libc malloc.</p>
+<p>To force compiling against libc malloc, use:</p>
+<pre><code>% make MALLOC=libc
+</code></pre>
+<p>To compile against jemalloc on Mac OS X systems, use:</p>
+<pre><code>% make MALLOC=jemalloc
+</code></pre>
+<h2 id="Monotonic-clock"><a href="#Monotonic-clock" class="headerlink" title="Monotonic clock"></a>Monotonic clock</h2><p>By default, Redis will build using the POSIX clock_gettime function as the<br>monotonic clock source.  On most modern systems, the internal processor clock<br>can be used to improve performance.  Cautions can be found here:<br>    <a target="_blank" rel="noopener" href="http://oliveryang.net/2015/09/pitfalls-of-TSC-usage/">http://oliveryang.net/2015/09/pitfalls-of-TSC-usage/</a></p>
+<p>To build with support for the processor’s internal instruction clock, use:</p>
+<pre><code>% make CFLAGS=&quot;-DUSE_PROCESSOR_CLOCK&quot;
+</code></pre>
+<h2 id="Verbose-build"><a href="#Verbose-build" class="headerlink" title="Verbose build"></a>Verbose build</h2><p>Redis will build with a user-friendly colorized output by default.<br>If you want to see a more verbose output, use the following:</p>
+<pre><code>% make V=1
+</code></pre>
+<h2 id="Running-Redis"><a href="#Running-Redis" class="headerlink" title="Running Redis"></a>Running Redis</h2><p>To run Redis with the default configuration, just type:</p>
+<pre><code>% cd src
+% ./redis-server
+</code></pre>
+<p>If you want to provide your redis.conf, you have to run it using an additional<br>parameter (the path of the configuration file):</p>
+<pre><code>% cd src
+% ./redis-server /path/to/redis.conf
+</code></pre>
+<p>It is possible to alter the Redis configuration by passing parameters directly<br>as options using the command line. Examples:</p>
+<pre><code>% ./redis-server --port 9999 --replicaof 127.0.0.1 6379
+% ./redis-server /etc/redis/6379.conf --loglevel debug
+</code></pre>
+<p>All the options in redis.conf are also supported as options using the command<br>line, with exactly the same name.</p>
+<h2 id="Running-Redis-with-TLS"><a href="#Running-Redis-with-TLS" class="headerlink" title="Running Redis with TLS:"></a>Running Redis with TLS:</h2><p>Please consult the <a href="TLS.md">TLS.md</a> file for more information on<br>how to use Redis with TLS.</p>
+<h2 id="Playing-with-Redis"><a href="#Playing-with-Redis" class="headerlink" title="Playing with Redis"></a>Playing with Redis</h2><p>You can use redis-cli to play with Redis. Start a redis-server instance,<br>then in another terminal try the following:</p>
+<pre><code>% cd src
+% ./redis-cli
+redis&gt; ping
+PONG
+redis&gt; set foo bar
+OK
+redis&gt; get foo
+&quot;bar&quot;
+redis&gt; incr mycounter
+(integer) 1
+redis&gt; incr mycounter
+(integer) 2
+redis&gt;
+</code></pre>
+<p>You can find the list of all the available commands at <a target="_blank" rel="noopener" href="http://redis.io/commands">http://redis.io/commands</a>.</p>
+<h2 id="Installing-Redis"><a href="#Installing-Redis" class="headerlink" title="Installing Redis"></a>Installing Redis</h2><p>In order to install Redis binaries into /usr/local/bin, just use:</p>
+<pre><code>% make install
+</code></pre>
+<p>You can use <code>make PREFIX=/some/other/directory install</code> if you wish to use a<br>different destination.</p>
+<p>Make install will just install binaries in your system, but will not configure<br>init scripts and configuration files in the appropriate place. This is not<br>needed if you just want to play a bit with Redis, but if you are installing<br>it the proper way for a production system, we have a script that does this<br>for Ubuntu and Debian systems:</p>
+<pre><code>% cd utils
+% ./install_server.sh
+</code></pre>
+<p><em>Note</em>: <code>install_server.sh</code> will not work on Mac OSX; it is built for Linux only.</p>
+<p>The script will ask you a few questions and will setup everything you need<br>to run Redis properly as a background daemon that will start again on<br>system reboots.</p>
+<p>You’ll be able to stop and start Redis using the script named<br><code>/etc/init.d/redis_&lt;portnumber&gt;</code>, for instance <code>/etc/init.d/redis_6379</code>.</p>
+<h2 id="Code-contributions"><a href="#Code-contributions" class="headerlink" title="Code contributions"></a>Code contributions</h2><p>Note: By contributing code to the Redis project in any form, including sending<br>a pull request via Github, a code fragment or patch via private email or<br>public discussion groups, you agree to release your code under the terms<br>of the BSD license that you can find in the <a target="_blank" rel="noopener" href="https://github.com/redis/redis/blob/unstable/COPYING">COPYING</a> file included in the Redis<br>source distribution.</p>
+<p>Please see the <a target="_blank" rel="noopener" href="https://github.com/redis/redis/blob/unstable/CONTRIBUTING">CONTRIBUTING</a> file in this source distribution for more<br>information, including details on our process for security bugs/vulnerabilities.</p>
+<h1 id="Redis-internals"><a href="#Redis-internals" class="headerlink" title="Redis internals"></a>Redis internals</h1><p>If you are reading this README you are likely in front of a Github page<br>or you just untarred the Redis distribution tar ball. In both the cases<br>you are basically one step away from the source code, so here we explain<br>the Redis source code layout, what is in each file as a general idea, the<br>most important functions and structures inside the Redis server and so forth.<br>We keep all the discussion at a high level without digging into the details<br>since this document would be huge otherwise and our code base changes<br>continuously, but a general idea should be a good starting point to<br>understand more. Moreover most of the code is heavily commented and easy<br>to follow.</p>
+<h2 id="Source-code-layout"><a href="#Source-code-layout" class="headerlink" title="Source code layout"></a>Source code layout</h2><p>The Redis root directory just contains this README, the Makefile which<br>calls the real Makefile inside the <code>src</code> directory and an example<br>configuration for Redis and Sentinel. You can find a few shell<br>scripts that are used in order to execute the Redis, Redis Cluster and<br>Redis Sentinel unit tests, which are implemented inside the <code>tests</code><br>directory.</p>
+<p>Inside the root are the following important directories:</p>
+<ul>
+<li><code>src</code>: contains the Redis implementation, written in C.</li>
+<li><code>tests</code>: contains the unit tests, implemented in Tcl.</li>
+<li><code>deps</code>: contains libraries Redis uses. Everything needed to compile Redis is inside this directory; your system just needs to provide <code>libc</code>, a POSIX compatible interface and a C compiler. Notably <code>deps</code> contains a copy of <code>jemalloc</code>, which is the default allocator of Redis under Linux. Note that under <code>deps</code> there are also things which started with the Redis project, but for which the main repository is not <code>redis/redis</code>.</li>
+</ul>
+<p>There are a few more directories but they are not very important for our goals<br>here. We’ll focus mostly on <code>src</code>, where the Redis implementation is contained,<br>exploring what there is inside each file. The order in which files are<br>exposed is the logical one to follow in order to disclose different layers<br>of complexity incrementally.</p>
+<p>Note: lately Redis was refactored quite a bit. Function names and file<br>names have been changed, so you may find that this documentation reflects the<br><code>unstable</code> branch more closely. For instance, in Redis 3.0 the <code>server.c</code><br>and <code>server.h</code> files were named <code>redis.c</code> and <code>redis.h</code>. However the overall<br>structure is the same. Keep in mind that all the new developments and pull<br>requests should be performed against the <code>unstable</code> branch.</p>
+<h2 id="server-h"><a href="#server-h" class="headerlink" title="server.h"></a>server.h</h2><p>The simplest way to understand how a program works is to understand the<br>data structures it uses. So we’ll start from the main header file of<br>Redis, which is <code>server.h</code>.</p>
+<p>All the server configuration and in general all the shared state is<br>defined in a global structure called <code>server</code>, of type <code>struct redisServer</code>.<br>A few important fields in this structure are:</p>
+<ul>
+<li><code>server.db</code> is an array of Redis databases, where data is stored.</li>
+<li><code>server.commands</code> is the command table.</li>
+<li><code>server.clients</code> is a linked list of clients connected to the server.</li>
+<li><code>server.master</code> is a special client, the master, if the instance is a replica.</li>
+</ul>
+<p>There are tons of other fields. Most fields are commented directly inside<br>the structure definition.</p>
+<p>Another important Redis data structure is the one defining a client.<br>In the past it was called <code>redisClient</code>, now just <code>client</code>. The structure<br>has many fields, here we’ll just show the main ones:</p>
+<pre><code>struct client &#123;
+    int fd;
+    sds querybuf;
+    int argc;
+    robj **argv;
+    redisDb *db;
+    int flags;
+    list *reply;
+    char buf[PROTO_REPLY_CHUNK_BYTES];
+    ... many other fields ...
+&#125;
+</code></pre>
+<p>The client structure defines a <em>connected client</em>:</p>
+<ul>
+<li>The <code>fd</code> field is the client socket file descriptor.</li>
+<li><code>argc</code> and <code>argv</code> are populated with the command the client is executing, so that functions implementing a given Redis command can read the arguments.</li>
+<li><code>querybuf</code> accumulates the requests from the client, which are parsed by the Redis server according to the Redis protocol and executed by calling the implementations of the commands the client is executing.</li>
+<li><code>reply</code> and <code>buf</code> are dynamic and static buffers that accumulate the replies the server sends to the client. These buffers are incrementally written to the socket as soon as the file descriptor is writeable.</li>
+</ul>
+<p>As you can see in the client structure above, arguments in a command<br>are described as <code>robj</code> structures. The following is the full <code>robj</code><br>structure, which defines a <em>Redis object</em>:</p>
+<pre><code>typedef struct redisObject &#123;
+    unsigned type:4;
+    unsigned encoding:4;
+    unsigned lru:LRU_BITS; /* lru time (relative to server.lruclock) */
+    int refcount;
+    void *ptr;
+&#125; robj;
+</code></pre>
+<p>Basically this structure can represent all the basic Redis data types like<br>strings, lists, sets, sorted sets and so forth. The interesting thing is that<br>it has a <code>type</code> field, so that it is possible to know what type a given<br>object has, and a <code>refcount</code>, so that the same object can be referenced<br>in multiple places without allocating it multiple times. Finally the <code>ptr</code><br>field points to the actual representation of the object, which might vary<br>even for the same type, depending on the <code>encoding</code> used.</p>
+<p>Redis objects are used extensively in the Redis internals, however in order<br>to avoid the overhead of indirect accesses, recently in many places<br>we just use plain dynamic strings not wrapped inside a Redis object.</p>
+<h2 id="server-c"><a href="#server-c" class="headerlink" title="server.c"></a>server.c</h2><p>This is the entry point of the Redis server, where the <code>main()</code> function<br>is defined. The following are the most important steps in order to startup<br>the Redis server.</p>
+<ul>
+<li><code>initServerConfig()</code> sets up the default values of the <code>server</code> structure.</li>
+<li><code>initServer()</code> allocates the data structures needed to operate, setup the listening socket, and so forth.</li>
+<li><code>aeMain()</code> starts the event loop which listens for new connections.</li>
+</ul>
+<p>There are two special functions called periodically by the event loop:</p>
+<ol>
+<li><code>serverCron()</code> is called periodically (according to <code>server.hz</code> frequency), and performs tasks that must be performed from time to time, like checking for timed out clients.</li>
+<li><code>beforeSleep()</code> is called every time the event loop fired, Redis served a few requests, and is returning back into the event loop.</li>
+</ol>
+<p>Inside server.c you can find code that handles other vital things of the Redis server:</p>
+<ul>
+<li><code>call()</code> is used in order to call a given command in the context of a given client.</li>
+<li><code>activeExpireCycle()</code> handles eviction of keys with a time to live set via the <code>EXPIRE</code> command.</li>
+<li><code>performEvictions()</code> is called when a new write command should be performed but Redis is out of memory according to the <code>maxmemory</code> directive.</li>
+<li>The global variable <code>redisCommandTable</code> defines all the Redis commands, specifying the name of the command, the function implementing the command, the number of arguments required, and other properties of each command.</li>
+</ul>
+<h2 id="networking-c"><a href="#networking-c" class="headerlink" title="networking.c"></a>networking.c</h2><p>This file defines all the I/O functions with clients, masters and replicas<br>(which in Redis are just special clients):</p>
+<ul>
+<li><code>createClient()</code> allocates and initializes a new client.</li>
+<li>the <code>addReply*()</code> family of functions are used by command implementations in order to append data to the client structure, that will be transmitted to the client as a reply for a given command executed.</li>
+<li><code>writeToClient()</code> transmits the data pending in the output buffers to the client and is called by the <em>writable event handler</em> <code>sendReplyToClient()</code>.</li>
+<li><code>readQueryFromClient()</code> is the <em>readable event handler</em> and accumulates data read from the client into the query buffer.</li>
+<li><code>processInputBuffer()</code> is the entry point in order to parse the client query buffer according to the Redis protocol. Once commands are ready to be processed, it calls <code>processCommand()</code> which is defined inside <code>server.c</code> in order to actually execute the command.</li>
+<li><code>freeClient()</code> deallocates, disconnects and removes a client.</li>
+</ul>
+<h2 id="aof-c-and-rdb-c"><a href="#aof-c-and-rdb-c" class="headerlink" title="aof.c and rdb.c"></a>aof.c and rdb.c</h2><p>As you can guess from the names, these files implement the RDB and AOF<br>persistence for Redis. Redis uses a persistence model based on the <code>fork()</code><br>system call in order to create a thread with the same (shared) memory<br>content of the main Redis thread. This secondary thread dumps the content<br>of the memory on disk. This is used by <code>rdb.c</code> to create the snapshots<br>on disk and by <code>aof.c</code> in order to perform the AOF rewrite when the<br>append only file gets too big.</p>
+<p>The implementation inside <code>aof.c</code> has additional functions in order to<br>implement an API that allows commands to append new commands into the AOF<br>file as clients execute them.</p>
+<p>The <code>call()</code> function defined inside <code>server.c</code> is responsible for calling<br>the functions that in turn will write the commands into the AOF.</p>
+<h2 id="db-c"><a href="#db-c" class="headerlink" title="db.c"></a>db.c</h2><p>Certain Redis commands operate on specific data types; others are general.<br>Examples of generic commands are <code>DEL</code> and <code>EXPIRE</code>. They operate on keys<br>and not on their values specifically. All those generic commands are<br>defined inside <code>db.c</code>.</p>
+<p>Moreover <code>db.c</code> implements an API in order to perform certain operations<br>on the Redis dataset without directly accessing the internal data structures.</p>
+<p>The most important functions inside <code>db.c</code> which are used in many command<br>implementations are the following:</p>
+<ul>
+<li><code>lookupKeyRead()</code> and <code>lookupKeyWrite()</code> are used in order to get a pointer to the value associated to a given key, or <code>NULL</code> if the key does not exist.</li>
+<li><code>dbAdd()</code> and its higher level counterpart <code>setKey()</code> create a new key in a Redis database.</li>
+<li><code>dbDelete()</code> removes a key and its associated value.</li>
+<li><code>emptyDb()</code> removes an entire single database or all the databases defined.</li>
+</ul>
+<p>The rest of the file implements the generic commands exposed to the client.</p>
+<h2 id="object-c"><a href="#object-c" class="headerlink" title="object.c"></a>object.c</h2><p>The <code>robj</code> structure defining Redis objects was already described. Inside<br><code>object.c</code> there are all the functions that operate with Redis objects at<br>a basic level, like functions to allocate new objects, handle the reference<br>counting and so forth. Notable functions inside this file:</p>
+<ul>
+<li><code>incrRefCount()</code> and <code>decrRefCount()</code> are used in order to increment or decrement an object reference count. When it drops to 0 the object is finally freed.</li>
+<li><code>createObject()</code> allocates a new object. There are also specialized functions to allocate string objects having a specific content, like <code>createStringObjectFromLongLong()</code> and similar functions.</li>
+</ul>
+<p>This file also implements the <code>OBJECT</code> command.</p>
+<h2 id="replication-c"><a href="#replication-c" class="headerlink" title="replication.c"></a>replication.c</h2><p>This is one of the most complex files inside Redis, it is recommended to<br>approach it only after getting a bit familiar with the rest of the code base.<br>In this file there is the implementation of both the master and replica role<br>of Redis.</p>
+<p>One of the most important functions inside this file is <code>replicationFeedSlaves()</code> that writes commands to the clients representing replica instances connected<br>to our master, so that the replicas can get the writes performed by the clients:<br>this way their data set will remain synchronized with the one in the master.</p>
+<p>This file also implements both the <code>SYNC</code> and <code>PSYNC</code> commands that are<br>used in order to perform the first synchronization between masters and<br>replicas, or to continue the replication after a disconnection.</p>
+<h2 id="Other-C-files"><a href="#Other-C-files" class="headerlink" title="Other C files"></a>Other C files</h2><ul>
+<li><code>t_hash.c</code>, <code>t_list.c</code>, <code>t_set.c</code>, <code>t_string.c</code>, <code>t_zset.c</code> and <code>t_stream.c</code> contains the implementation of the Redis data types. They implement both an API to access a given data type, and the client command implementations for these data types.</li>
+<li><code>ae.c</code> implements the Redis event loop, it’s a self contained library which is simple to read and understand.</li>
+<li><code>sds.c</code> is the Redis string library, check <a target="_blank" rel="noopener" href="http://github.com/antirez/sds">http://github.com/antirez/sds</a> for more information.</li>
+<li><code>anet.c</code> is a library to use POSIX networking in a simpler way compared to the raw interface exposed by the kernel.</li>
+<li><code>dict.c</code> is an implementation of a non-blocking hash table which rehashes incrementally.</li>
+<li><code>scripting.c</code> implements Lua scripting. It is completely self-contained and isolated from the rest of the Redis implementation and is simple enough to understand if you are familiar with the Lua API.</li>
+<li><code>cluster.c</code> implements the Redis Cluster. Probably a good read only after being very familiar with the rest of the Redis code base. If you want to read <code>cluster.c</code> make sure to read the <a target="_blank" rel="noopener" href="http://redis.io/topics/cluster-spec">Redis Cluster specification</a>.</li>
+</ul>
+<h2 id="Anatomy-of-a-Redis-command"><a href="#Anatomy-of-a-Redis-command" class="headerlink" title="Anatomy of a Redis command"></a>Anatomy of a Redis command</h2><p>All the Redis commands are defined in the following way:</p>
+<pre><code>void foobarCommand(client *c) &#123;
+    printf(&quot;%s&quot;,c-&gt;argv[1]-&gt;ptr); /* Do something with the argument. */
+    addReply(c,shared.ok); /* Reply something to the client. */
+&#125;
+</code></pre>
+<p>The command is then referenced inside <code>server.c</code> in the command table:</p>
+<pre><code>&#123;&quot;foobar&quot;,foobarCommand,2,&quot;rtF&quot;,0,NULL,0,0,0,0,0&#125;,
+</code></pre>
+<p>In the above example <code>2</code> is the number of arguments the command takes,<br>while <code>&quot;rtF&quot;</code> are the command flags, as documented in the command table<br>top comment inside <code>server.c</code>.</p>
+<p>After the command operates in some way, it returns a reply to the client,<br>usually using <code>addReply()</code> or a similar function defined inside <code>networking.c</code>.</p>
+<p>There are tons of command implementations inside the Redis source code<br>that can serve as examples of actual commands implementations. Writing<br>a few toy commands can be a good exercise to get familiar with the code base.</p>
+<p>There are also many other files not described here, but it is useless to<br>cover everything. We just want to help you with the first steps.<br>Eventually you’ll find your way inside the Redis code base :-)</p>
+<p>Enjoy!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/12/redis/" data-id="cklm0jreh000z2j952nyr6p68" data-title="Redis" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/02/12/kubernetes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Kubernetes (K8s)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/12/laravel/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Laravel</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/" rel="tag">Hello</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/" rel="tag">NoSQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Welcome/" rel="tag">Welcome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/World/" rel="tag">World</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yii2/" rel="tag">yii2</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/24/test-news/">Test News</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/20/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/12/kubernetes/">Kubernetes (K8s)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/12/redis/">Redis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/laravel/">Laravel</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JQuery/">JQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kubernetes/">Kubernetes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Laravel/">Laravel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Yii2/">Yii2</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 By Autoload<br>
+      Driven - <a href="https://hexo.io/" target="_blank">Hexo</a>|Theme - <a href="https://github.com/autoload/hexo-theme-auto" target="_blank">Auto</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
